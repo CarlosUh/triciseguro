@@ -6,6 +6,11 @@ Inicializar Laravel
 	
 * laravel new Muestra
 * crear modelo Tarea
+
+Clonando desde git
+==================
+* crear archivo .env a partir del ejemplo que se incluye en el proyecto.
+* php artisan key:generate
 * Iniciar servidor:
 	- php artisan serve
 * creat migracion
@@ -29,6 +34,11 @@ Instalacion de adminLTE
 * Instalacion
 	- composer global require "acacha/adminlte-laravel-installer"
 	- adminlte-laravel install
+	
+Instalar laravel para version 6
+===============================
+* composer require jeroennoten/laravel-adminlte
+* php artisan adminlte:install
 	
 Instalacion de Laravel CRUD Generator
 ==============
