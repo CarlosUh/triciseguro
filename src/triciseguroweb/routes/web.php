@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('tareas', 'TareasController');
+Route::resource('viajes', 'ViajesController');
