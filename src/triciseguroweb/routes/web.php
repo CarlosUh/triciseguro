@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('documentos', 'DocumentosController');
+Route::resource('persona', 'PersonaController');
