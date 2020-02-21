@@ -14,4 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 Route::resource('queja', 'QuejaController');
+=======
+
+Route::resource('tarea', 'TareaController');
+Route::resource('licencia', 'LicenciaController');
+>>>>>>> 77b20fa2d8f9d8f07e0baf92f6b82391e3d4a65a
