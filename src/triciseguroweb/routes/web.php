@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::resource('tarea', 'TareaController');
 Route::resource('comprobante_pago', 'comprobante_pagoController');
+Route::resource('queja', 'QuejaController');
+Route::resource('viajes', 'ViajesController');
+Route::resource('licencia', 'LicenciaController');
