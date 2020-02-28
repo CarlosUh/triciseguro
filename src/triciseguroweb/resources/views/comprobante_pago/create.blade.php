@@ -3,11 +3,11 @@
 @section('content_header')
     <div class="container">
         <div class="row">
-            
+           
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Create New comprobante_pago</div>
+                    <div class="card-header">Create New Comprobante_pago</div>
                     <div class="card-body">
                         <a href="{{ url('/comprobante_pago') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />

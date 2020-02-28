@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\comprobante_pago;
+use App\Comprobante_pago;
 use Illuminate\Http\Request;
 
-class comprobante_pagoController extends Controller
+class Comprobante_pagoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,14 @@ class comprobante_pagoController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $comprobante_pago = comprobante_pago::where('fecha', 'LIKE', "%$keyword%")
+            $comprobante_pago = Comprobante_pago::where('fecha', 'LIKE', "%$keyword%")
                 ->orWhere('hora', 'LIKE', "%$keyword%")
                 ->orWhere('cantidad', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('formapago', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $comprobante_pago = comprobante_pago::latest()->paginate($perPage);
+            $comprobante_pago = Comprobante_pago::latest()->paginate($perPage);
         }
 
         return view('comprobante_pago.index', compact('comprobante_pago'));
@@ -58,9 +58,9 @@ class comprobante_pagoController extends Controller
 		]);
         $requestData = $request->all();
         
-        comprobante_pago::create($requestData);
+        Comprobante_pago::create($requestData);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago added!');
+        return redirect('comprobante_pago')->with('flash_message', 'Comprobante_pago added!');
     }
 
     /**
@@ -72,7 +72,7 @@ class comprobante_pagoController extends Controller
      */
     public function show($id)
     {
-        $comprobante_pago = comprobante_pago::findOrFail($id);
+        $comprobante_pago = Comprobante_pago::findOrFail($id);
 
         return view('comprobante_pago.show', compact('comprobante_pago'));
     }
@@ -86,7 +86,7 @@ class comprobante_pagoController extends Controller
      */
     public function edit($id)
     {
-        $comprobante_pago = comprobante_pago::findOrFail($id);
+        $comprobante_pago = Comprobante_pago::findOrFail($id);
 
         return view('comprobante_pago.edit', compact('comprobante_pago'));
     }
@@ -106,10 +106,10 @@ class comprobante_pagoController extends Controller
 		]);
         $requestData = $request->all();
         
-        $comprobante_pago = comprobante_pago::findOrFail($id);
+        $comprobante_pago = Comprobante_pago::findOrFail($id);
         $comprobante_pago->update($requestData);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago updated!');
+        return redirect('comprobante_pago')->with('flash_message', 'Comprobante_pago updated!');
     }
 
     /**
@@ -121,8 +121,8 @@ class comprobante_pagoController extends Controller
      */
     public function destroy($id)
     {
-        comprobante_pago::destroy($id);
+        Comprobante_pago::destroy($id);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago deleted!');
+        return redirect('comprobante_pago')->with('flash_message', 'Comprobante_pago deleted!');
     }
 }

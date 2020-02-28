@@ -20,3 +20,6 @@ Route::resource('persona', 'PersonaController');
 Route::resource('queja', 'QuejaController');
 Route::resource('viajes', 'ViajesController');
 Route::resource('licencia', 'LicenciaController');
+
+
+Route::resource('comprobante_pago', 'Comprobante_pagoController');
