@@ -50,10 +50,7 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-			'nombre' => 'required|min:1|max:20',
-			'numero' => 'required|min:1|max:10'
-		]);
+        
         $requestData = $request->all();
         
         Contacto::create($requestData);
@@ -99,10 +96,7 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-			'nombre' => 'required|min:1|max:20',
-			'numero' => 'required|min:1|max:10'
-		]);
+        
         $requestData = $request->all();
         
         $contacto = Contacto::findOrFail($id);

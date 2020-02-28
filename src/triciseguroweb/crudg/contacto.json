@@ -29,16 +29,6 @@
             "class": "App\\Models\\Pasajero"
         }
 
-    ],
-    "validations": [
-        {
-            "field": "nombre",
-            "rules": "required|min:1|max:20"
-        },
-
-        {
-            "field": "numero",
-            "rules": "required|min:1|max:10"
-        }
     ]
+
 }

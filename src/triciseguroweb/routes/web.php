@@ -16,12 +16,13 @@ Route::get('/', function () {
 });
 
 
-Route::resource('tarea', 'TareaController');
-Route::resource('contactos', 'ContactosController');
 
 Route::resource('documentos', 'DocumentosController');
 Route::resource('persona', 'PersonaController');
 Route::resource('queja', 'QuejaController');
-Route::resource('viajes', 'ViajesController');
+
 Route::resource('licencia', 'LicenciaController');
 
+
+
+Route::resource('contactos', 'ContactosController');
