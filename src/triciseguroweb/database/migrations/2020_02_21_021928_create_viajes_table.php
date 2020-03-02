@@ -32,3 +32,4 @@ class CreateViajesTable extends Migration
         Schema::drop('viajes');
     }
 }
+
