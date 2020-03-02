@@ -1,0 +1,59 @@
+{
+	"model_name":"Alerta",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"alertas",
+    "fields": [
+        {
+            "name": "descripcion",
+            "type": "string"
+        },
+        {
+            "name": "fecha",
+            "type": "datetime"
+        
+        },
+        {
+            "name": "pasajero_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "viaje_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "pasajero_id",
+            "references": "id",
+            "on": "pasajero",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "viaje_id",
+            "references": "id",
+            "on": "viaje",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+         {
+            "name": "pasajero",
+            "type": "belongsTo",
+            "class": "App\\Models\\Pasajero"
+        },
+        {
+            "name": "viaje",
+            "type": "belongsTo",
+            "class": "App\\Models\\Viaje"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        }
+    ]
+}
