@@ -21,8 +21,7 @@ class CreatePersonasTable extends Migration
             $table->string('genero')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
-            $table->integer('ubicacion_id')->unsigned();
-            $table->foreign('ubicacion_id')->references('id')->on('ubicacion')->onDelete('cascade')->onUpdate('cascade');
+           
             });
     }
 
