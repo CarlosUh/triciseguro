@@ -7,13 +7,13 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Documentos</div>
+                    <div class="card-header">Persona</div>
                     <div class="card-body">
-                        <a href="{{ url('/documentos/create') }}" class="btn btn-success btn-sm" title="Add New Documento">
+                        <a href="{{ url('/persona/create') }}" class="btn btn-success btn-sm" title="Add New Persona">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
-                        <form method="GET" action="{{ url('/documentos') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+                        <form method="GET" action="{{ url('/persona') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
                                 <span class="input-group-append">
@@ -30,29 +30,29 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Credencial Id</th><th>Cuota Id</th><th>Licencia Id</th><th>Actions</th>
+                                        <th>#</th><th>Nombre</th><th>Apellido</th><th>F Nacimiento</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($documentos as $item)
+                                @foreach($persona as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->credencial_id }}</td><td>{{ $item->cuota_id }}</td><td>{{ $item->licencia_id }}</td>
+                                        <td>{{ $item->nombre }}</td><td>{{ $item->apellido }}</td><td>{{ $item->f_nacimiento }}</td>
                                         <td>
-                                            <a href="{{ url('/documentos/' . $item->id) }}" title="View Documento"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/documentos/' . $item->id . '/edit') }}" title="Edit Documento"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/persona/' . $item->id) }}" title="View Persona"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/persona/' . $item->id . '/edit') }}" title="Edit Persona"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                            <form method="POST" action="{{ url('/documentos' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/persona' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Documento" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Persona" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $documentos->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $persona->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
                     </div>
