@@ -8,10 +8,15 @@
     <textarea class="form-control" rows="5" name="mensaje" type="textarea" id="mensaje" >{{ isset($notificacion->mensaje) ? $notificacion->mensaje : ''}}</textarea>
     {!! $errors->first('mensaje', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('persona_id') ? 'has-error' : ''}}">
-    <label for="persona_id" class="control-label">{{ 'Persona Id' }}</label>
-    <input class="form-control" name="persona_id" type="number" id="persona_id" value="{{ isset($notificacion->persona_id) ? $notificacion->persona_id : ''}}" required>
-    {!! $errors->first('persona_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('origen') ? 'has-error' : ''}}">
+    <label for="origen" class="control-label">{{ 'Origen' }}</label>
+    <input class="form-control" name="origen" type="number" id="origen" value="{{ isset($notificacion->origen) ? $notificacion->origen : ''}}" >
+    {!! $errors->first('origen', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('destino') ? 'has-error' : ''}}">
+    <label for="destino" class="control-label">{{ 'Destino' }}</label>
+    <input class="form-control" name="destino" type="number" id="destino" value="{{ isset($notificacion->destino) ? $notificacion->destino : ''}}" >
+    {!! $errors->first('destino', '<p class="help-block">:message</p>') !!}
 </div>
 
 

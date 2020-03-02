@@ -17,8 +17,10 @@ class CreateNotificacionsTable extends Migration
             $table->timestamps();
             $table->string('tipo')->nullable();
             $table->text('mensaje')->nullable();
-            $table->integer('persona_id')->unsigned();
-            $table->foreign('persona_id')->references('id')->on('persona')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('origen')->unsigned();
+            $table->integer('destino')->unsigned();
+            $table->foreign('origen')->references('id')->on('personas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('destino')->references('id')->on('personas')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 

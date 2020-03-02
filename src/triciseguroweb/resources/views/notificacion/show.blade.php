@@ -1,9 +1,9 @@
-@extends('adminlte::page')
-@section('title', 'Laravel')
-@section('content_header')
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="row">
-            
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $notificacion->id }}</td>
                                     </tr>
-                                    <tr><th> Tipo </th><td> {{ $notificacion->tipo }} </td></tr><tr><th> Mensaje </th><td> {{ $notificacion->mensaje }} </td></tr><tr><th> Persona Id </th><td> {{ $notificacion->persona_id }} </td></tr>
+                                    <tr><th> Tipo </th><td> {{ $notificacion->tipo }} </td></tr><tr><th> Mensaje </th><td> {{ $notificacion->mensaje }} </td></tr><tr><th> Origen </th><td> {{ $notificacion->origen }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -3,8 +3,8 @@
 	"soft_deletes":"yes",
 	"pk":"id",
 	"localize":"yes",
-	"table":"notificacion",
-    "fields": [		
+	"table":"notificacions",
+    "fields": [	
         {
             "name": "tipo",
             "type": "string"
@@ -14,23 +14,38 @@
             "type": "text"
         },
         {
-            "name": "persona_id",
+            "name": "origen",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "destino",
             "type": "integer#unsigned"
         }
-      
+    
     ],
     "foreign_keys": [
         {
-            "column": "persona_id",
+            "column": "origen",
             "references": "id",
-            "on": "persona",
+            "on": "personas",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "destino",
+            "references": "id",
+            "on": "personas",
             "onDelete": "cascade"
         }
        
     ],
     "relationships": [
         {
-            "name": "persona",
+            "name": "origen",
+            "type": "belongsTo",
+            "class": "App\\Models\\Persona"
+        },
+        {
+            "name": "destino",
             "type": "belongsTo",
             "class": "App\\Models\\Persona"
         }

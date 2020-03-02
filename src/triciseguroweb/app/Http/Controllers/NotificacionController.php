@@ -23,7 +23,8 @@ class NotificacionController extends Controller
         if (!empty($keyword)) {
             $notificacion = Notificacion::where('tipo', 'LIKE', "%$keyword%")
                 ->orWhere('mensaje', 'LIKE', "%$keyword%")
-                ->orWhere('persona_id', 'LIKE', "%$keyword%")
+                ->orWhere('origen', 'LIKE', "%$keyword%")
+                ->orWhere('destino', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $notificacion = Notificacion::latest()->paginate($perPage);

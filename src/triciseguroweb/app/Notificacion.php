@@ -25,9 +25,13 @@ class Notificacion extends Model
      *
      * @var array
      */
-    protected $fillable = ['tipo', 'mensaje', 'persona_id'];
+    protected $fillable = ['tipo', 'mensaje', 'origen', 'destino'];
 
-    public function persona()
+    public function origen()
+    {
+        return $this->belongsTo('App\Models\Persona');
+    }
+    public function destino()
     {
         return $this->belongsTo('App\Models\Persona');
     }

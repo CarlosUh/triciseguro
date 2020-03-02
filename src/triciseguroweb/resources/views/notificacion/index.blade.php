@@ -1,9 +1,9 @@
-@extends('adminlte::page')
-@section('title', 'Laravel')
-@section('content_header')
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="row">
-            
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
@@ -30,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Tipo</th><th>Mensaje</th><th>Persona Id</th><th>Actions</th>
+                                        <th>#</th><th>Tipo</th><th>Mensaje</th><th>Origen</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($notificacion as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->tipo }}</td><td>{{ $item->mensaje }}</td><td>{{ $item->persona_id }}</td>
+                                        <td>{{ $item->tipo }}</td><td>{{ $item->mensaje }}</td><td>{{ $item->origen }}</td>
                                         <td>
                                             <a href="{{ url('/notificacion/' . $item->id) }}" title="View Notificacion"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/notificacion/' . $item->id . '/edit') }}" title="Edit Notificacion"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
