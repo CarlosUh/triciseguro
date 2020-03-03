@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateQuejasTable extends Migration
+class CreateComprobantePagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateQuejasTable extends Migration
      */
     public function up()
     {
-        Schema::create('quejas', function (Blueprint $table) {
+        Schema::create('comprobante_pagos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('nombre')->nullable();
-            $table->string('taxista')->nullable();
+            $table->dateTime('fecha')->nullable();
+            $table->integer('cantidad')->nullable();
             $table->text('descripcion')->nullable();
+            $table->text('formapago')->nullable();
             });
     }
 
@@ -28,6 +29,6 @@ class CreateQuejasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('quejas');
+        Schema::drop('comprobante_pagos');
     }
 }

@@ -1,12 +1,7 @@
 <div class="form-group {{ $errors->has('fecha') ? 'has-error' : ''}}">
     <label for="fecha" class="control-label">{{ 'Fecha' }}</label>
-    <input class="form-control" name="fecha" type="date" id="fecha" value="{{ isset($comprobante_pago->fecha) ? $comprobante_pago->fecha : ''}}" required>
+    <input class="form-control" name="fecha" type="datetime-local" id="fecha" value="{{ isset($comprobante_pago->fecha) ? $comprobante_pago->fecha : ''}}" required>
     {!! $errors->first('fecha', '<p class="help-block">:message</p>') !!}
-</div>
-<div class="form-group {{ $errors->has('hora') ? 'has-error' : ''}}">
-    <label for="hora" class="control-label">{{ 'Hora' }}</label>
-    <input class="form-control" name="hora" type="time" id="hora" value="{{ isset($comprobante_pago->hora) ? $comprobante_pago->hora : ''}}" >
-    {!! $errors->first('hora', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('cantidad') ? 'has-error' : ''}}">
     <label for="cantidad" class="control-label">{{ 'Cantidad' }}</label>

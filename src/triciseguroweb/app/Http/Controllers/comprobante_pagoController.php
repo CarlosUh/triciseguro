@@ -22,7 +22,6 @@ class Comprobante_pagoController extends Controller
 
         if (!empty($keyword)) {
             $comprobante_pago = Comprobante_pago::where('fecha', 'LIKE', "%$keyword%")
-                ->orWhere('hora', 'LIKE', "%$keyword%")
                 ->orWhere('cantidad', 'LIKE', "%$keyword%")
                 ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->orWhere('formapago', 'LIKE', "%$keyword%")

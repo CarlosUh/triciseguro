@@ -3,7 +3,7 @@
 @section('content_header')
     <div class="container">
         <div class="row">
-         
+  
 
             <div class="col-md-9">
                 <div class="card">
@@ -30,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Fecha</th><th>Hora</th><th>Cantidad</th><th>Actions</th>
+                                        <th>#</th><th>Fecha</th><th>Cantidad</th><th>Descripcion</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($comprobante_pago as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->fecha }}</td><td>{{ $item->hora }}</td><td>{{ $item->cantidad }}</td>
+                                        <td>{{ $item->fecha }}</td><td>{{ $item->cantidad }}</td><td>{{ $item->descripcion }}</td>
                                         <td>
                                             <a href="{{ url('/comprobante_pago/' . $item->id) }}" title="View Comprobante_pago"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/comprobante_pago/' . $item->id . '/edit') }}" title="Edit Comprobante_pago"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

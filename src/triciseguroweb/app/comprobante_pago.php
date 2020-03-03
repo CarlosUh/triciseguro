@@ -25,7 +25,7 @@ class Comprobante_pago extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha', 'hora', 'cantidad', 'descripcion', 'formapago'];
+    protected $fillable = ['fecha', 'cantidad', 'descripcion', 'formapago'];
 
     
 }

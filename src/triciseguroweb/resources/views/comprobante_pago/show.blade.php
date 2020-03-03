@@ -3,7 +3,7 @@
 @section('content_header')
     <div class="container">
         <div class="row">
-         
+            
 
             <div class="col-md-9">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $comprobante_pago->id }}</td>
                                     </tr>
-                                    <tr><th> Fecha </th><td> {{ $comprobante_pago->fecha }} </td></tr><tr><th> Hora </th><td> {{ $comprobante_pago->hora }} </td></tr><tr><th> Cantidad </th><td> {{ $comprobante_pago->cantidad }} </td></tr>
+                                    <tr><th> Fecha </th><td> {{ $comprobante_pago->fecha }} </td></tr><tr><th> Cantidad </th><td> {{ $comprobante_pago->cantidad }} </td></tr><tr><th> Descripcion </th><td> {{ $comprobante_pago->descripcion }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
