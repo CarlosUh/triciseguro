@@ -30,3 +30,6 @@ Route::resource('notificacion', 'NotificacionController');
 
 
 Route::resource('viajes', 'ViajesController');
+
+
+Route::resource('servicios', 'ServiciosController');

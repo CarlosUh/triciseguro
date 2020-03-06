@@ -1,0 +1,31 @@
+{
+	"model_name":"Servicio",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"servicios",
+    "fields": [		
+        {
+            "name": "tipo",
+            "type": "string"
+        },
+        {
+            "name": "precio",
+            "type": "integer"
+        }
+    ],
+    "relationships": [
+      
+    ],
+    "validations": [
+        {
+            "field": "tipo",
+            "rules": "required|min:8|max:20"
+        },
+		{
+            "field": "precio",
+            "rules": "required:5"
+        }
+    ]
+	
+}
