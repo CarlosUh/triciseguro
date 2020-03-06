@@ -28,3 +28,6 @@ Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
 
+
+
+Route::resource('calificacion', 'CalificacionController');
