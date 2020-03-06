@@ -15,7 +15,6 @@ class ViajesTableSeeder extends Seeder
         //
         DB::table('viajes')->insert([
             'idSolicitud' => '7',
-            'idAlerta' => '7',
 
         ]);
     }

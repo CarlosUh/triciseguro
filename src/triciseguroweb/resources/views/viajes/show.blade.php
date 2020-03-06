@@ -3,8 +3,7 @@
 @section('content_header')
     <div class="container">
         <div class="row">
-          
-
+           
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Viaje {{ $viaje->id }}</div>
@@ -27,7 +26,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $viaje->id }}</td>
                                     </tr>
-                                    <tr><th> IdSolicitud </th><td> {{ $viaje->idSolicitud }} </td></tr><tr><th> IdAlerta </th><td> {{ $viaje->idAlerta }} </td></tr>
+                                    <tr><th> IdSolicitud </th><td> {{ $viaje->idSolicitud }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

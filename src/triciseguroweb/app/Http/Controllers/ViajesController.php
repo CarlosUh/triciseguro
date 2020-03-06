@@ -22,7 +22,6 @@ class ViajesController extends Controller
 
         if (!empty($keyword)) {
             $viajes = Viaje::where('idSolicitud', 'LIKE', "%$keyword%")
-                ->orWhere('idAlerta', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $viajes = Viaje::latest()->paginate($perPage);

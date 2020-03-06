@@ -3,8 +3,7 @@
 @section('content_header')
     <div class="container">
         <div class="row">
-            
-
+           
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Viajes</div>
@@ -30,14 +29,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>IdSolicitud</th><th>IdAlerta</th><th>Actions</th>
+                                        <th>#</th><th>IdSolicitud</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($viajes as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->idSolicitud }}</td><td>{{ $item->idAlerta }}</td>
+                                        <td>{{ $item->idSolicitud }}</td>
                                         <td>
                                             <a href="{{ url('/viajes/' . $item->id) }}" title="View Viaje"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/viajes/' . $item->id . '/edit') }}" title="Edit Viaje"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

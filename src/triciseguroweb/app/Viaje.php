@@ -25,15 +25,11 @@ class Viaje extends Model
      *
      * @var array
      */
-    protected $fillable = ['idSolicitud', 'idAlerta'];
+    protected $fillable = ['idSolicitud'];
 
-    public function solicitud()
+    public function solicitudes()
     {
         return $this->hasMany('App\Solicitud');
-    }
-    public function alerta()
-    {
-        return $this->hasMany('App\Alerta');
     }
     
 }

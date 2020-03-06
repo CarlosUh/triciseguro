@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-Route::resource('documentos', 'DocumentosController');
+Route::resource('alerta', 'AlertaController');
 Route::resource('persona', 'PersonaController');
 Route::resource('queja', 'QuejaController');
 

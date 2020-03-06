@@ -8,10 +8,6 @@
         {
             "name": "idSolicitud",
             "type": "integer#unsigned"
-        },
-        {
-            "name": "idAlerta",
-            "type": "integer#unsigned"
         }
              
     ],    
@@ -19,26 +15,15 @@
         {
             "column": "idSolicitud",
             "references": "id",
-            "on": "solicitud",
-            "onDelete": "cascade"
-        },
-        {
-            "column": "idAlerta",
-            "references": "id",
-            "on": "alerta",
+            "on": "solicitudes",
             "onDelete": "cascade"
         }
     ],
     "relationships": [
         {
-            "name": "solicitud",
+            "name": "solicitudes",
             "type": "hasMany",
             "class": "App\\Solicitud"
-        },
-        {
-            "name": "alerta",
-            "type": "hasMany",
-            "class": "App\\Alerta"
         }
 
     ]
