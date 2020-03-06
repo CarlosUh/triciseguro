@@ -11,7 +11,7 @@ class Taxi extends Model
      *
      * @var string
      */
-    protected $table = 'taxes';
+    protected $table = 'taxi';
 
     /**
     * The database primary key value.
