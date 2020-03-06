@@ -25,11 +25,8 @@ class Persona extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'apellido', 'f_nacimiento', 'genero', 'direccion', 'telefono', 'ubicacion_id'];
+    protected $fillable = ['nombre', 'apellido', 'f_nacimiento', 'genero', 'direccion', 'telefono'];
 
-    public function ubicacion()
-    {
-        return $this->belongsTo('App\Models\ubicacion');
-    }
+   
     
 }
