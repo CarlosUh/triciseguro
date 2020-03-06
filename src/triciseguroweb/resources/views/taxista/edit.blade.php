@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+@section('title', 'Laravel')
+@section('content_header')
 
 @section('content')
     <div class="container">
