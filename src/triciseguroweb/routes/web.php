@@ -28,3 +28,5 @@ Route::resource('notificacion', 'NotificacionController');
 Route::resource('viajes', 'ViajesController');
 
 Route::resource('solicitud', 'SolicitudController');
+
+Route::resource('viajes', 'ViajesController');

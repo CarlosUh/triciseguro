@@ -21,7 +21,7 @@ class ViajesController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $viajes = Viaje::where('idSolicitud', 'LIKE', "%$keyword%")
+            $viajes = Viaje::where('solicitud_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $viajes = Viaje::latest()->paginate($perPage);

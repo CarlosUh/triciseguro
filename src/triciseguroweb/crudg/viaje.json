@@ -6,14 +6,14 @@
     "table":"viajes",
     "fields": [     
         {
-            "name": "idSolicitud",
+            "name": "solicitud_id",
             "type": "integer#unsigned"
         }
              
     ],    
     "foreign_keys": [
         {
-            "column": "idSolicitud",
+            "column": "solicitud_id",
             "references": "id",
             "on": "solicitudes",
             "onDelete": "cascade"
@@ -23,7 +23,7 @@
         {
             "name": "solicitudes",
             "type": "hasMany",
-            "class": "App\\Solicitud"
+            "class": "App\\Models\\Solicitud"
         }
 
     ]

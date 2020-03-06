@@ -25,11 +25,11 @@ class Viaje extends Model
      *
      * @var array
      */
-    protected $fillable = ['idSolicitud'];
+    protected $fillable = ['solicitud_id'];
 
     public function solicitudes()
     {
-        return $this->hasMany('App\Solicitud');
+        return $this->hasMany('App\Models\Solicitud');
     }
     
 }
