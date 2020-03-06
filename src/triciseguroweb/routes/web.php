@@ -22,6 +22,4 @@ Route::resource('viajes', 'ViajesController');
 Route::resource('licencia', 'LicenciaController');
 
 
-
-
 Route::resource('solicitud', 'SolicitudController');
