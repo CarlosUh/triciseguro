@@ -21,11 +21,10 @@ Route::resource('queja', 'QuejaController');
 
 Route::resource('licencia', 'LicenciaController');
 
-
 Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
 
-
-
 Route::resource('viajes', 'ViajesController');
+
+Route::resource('solicitud', 'SolicitudController');
