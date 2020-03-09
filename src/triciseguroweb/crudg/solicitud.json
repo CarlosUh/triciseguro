@@ -37,7 +37,7 @@
         {
             "column": "ruta_id",
             "references": "id",
-            "on": "Ruta",
+            "on": "ruta",
             "onDelete": "cascade"
         },
         {
@@ -57,7 +57,7 @@
 
     "relationships": [
         {
-            "name": "promociono_id", 
+            "name": "promocion_id", 
             "type": "hasMany",
             "class": "App\\Promocion"
         },
