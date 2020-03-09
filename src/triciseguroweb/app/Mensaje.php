@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mensaje extends Model
+class mensaje extends Model
 {
     /**
      * The database table used by the model.
@@ -25,11 +25,7 @@ class Mensaje extends Model
      *
      * @var array
      */
-    protected $fillable = ['mensaje', 'taxista_id'];
+    protected $fillable = ['mensaje', 'taxista_id', 'solicitud_id'];
 
-    public function taxista()
-    {
-        return $this->belongsTo('App\Models\Taxista');
-    }
     
 }

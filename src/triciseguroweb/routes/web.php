@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('mensajes', 'MensajesController');
+
+
+Route::resource('mensaje', 'mensajeController');

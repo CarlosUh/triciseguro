@@ -13,6 +13,8 @@ class Mensaje extends Seeder
     {
             DB::table('mensajes')->insert([
             'Mensaje' => Str::random(10),
+            'taxista_id' => 1,
+            'solicitud_id'=> 1
         ]);
     }
 }

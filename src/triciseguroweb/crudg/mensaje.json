@@ -6,12 +6,43 @@
     "table":"Mensajes",
     "fields": [
         {
-            "name": "Mensaje",
+            "name": "mensaje",
             "type": "text"
+        },
+        {
+            "name": "taxista_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "solicitud_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "taxista_id",
+            "references": "id",
+            "on": "taxista",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "solicitud_id",
+            "references": "id",
+            "on": "solicituds",
+            "onDelete": "cascade"
         }
     ],
     "relationships": [
-
+        {
+            "name": "taxista",
+            "type": "belongsTo",
+            "class": "App\\Models\\Taxista"
+        },
+        {
+            "name": "solicitud",
+            "type": "belongsTo",
+            "class": "App\\Models\\Solicitud"
+        }
     ],
     "validations": [
         {
