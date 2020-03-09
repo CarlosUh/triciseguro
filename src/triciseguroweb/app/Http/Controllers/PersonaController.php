@@ -27,13 +27,12 @@ class PersonaController extends Controller
                 ->orWhere('genero', 'LIKE', "%$keyword%")
                 ->orWhere('direccion', 'LIKE', "%$keyword%")
                 ->orWhere('telefono', 'LIKE', "%$keyword%")
-                ->orWhere('ubicacion_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $persona = Persona::latest()->paginate($perPage);
         }
 
-        return view('persona.index', compact('persona'));
+        return view('personas.index', compact('persona'));
     }
 
     /**
@@ -43,7 +42,7 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        return view('persona.create');
+        return view('personas.create');
     }
 
     /**
@@ -62,13 +61,13 @@ class PersonaController extends Controller
 			'genero' => 'required|min:8',
 			'direccion' => 'required|min:8',
 			'telefono' => 'required|min:8',
-			'ubicacion_id' => 'required|min:8'
+			
 		]);
         $requestData = $request->all();
         
         Persona::create($requestData);
 
-        return redirect('persona')->with('flash_message', 'Persona added!');
+        return redirect('personas')->with('flash_message', 'Persona added!');
     }
 
     /**
@@ -82,7 +81,7 @@ class PersonaController extends Controller
     {
         $persona = Persona::findOrFail($id);
 
-        return view('persona.show', compact('persona'));
+        return view('personas.show', compact('persona'));
     }
 
     /**
@@ -96,7 +95,7 @@ class PersonaController extends Controller
     {
         $persona = Persona::findOrFail($id);
 
-        return view('persona.edit', compact('persona'));
+        return view('personas.edit', compact('persona'));
     }
 
     /**
@@ -116,14 +115,14 @@ class PersonaController extends Controller
 			'genero' => 'required|min:8',
 			'direccion' => 'required|min:8',
 			'telefono' => 'required|min:8',
-			'ubicacion_id' => 'required|min:8'
+			
 		]);
         $requestData = $request->all();
         
         $persona = Persona::findOrFail($id);
         $persona->update($requestData);
 
-        return redirect('persona')->with('flash_message', 'Persona updated!');
+        return redirect('personas')->with('flash_message', 'Persona updated!');
     }
 
     /**
@@ -137,6 +136,6 @@ class PersonaController extends Controller
     {
         Persona::destroy($id);
 
-        return redirect('persona')->with('flash_message', 'Persona deleted!');
+        return redirect('personas')->with('flash_message', 'Persona deleted!');
     }
 }
