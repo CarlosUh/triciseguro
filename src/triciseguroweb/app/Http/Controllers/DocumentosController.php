@@ -22,7 +22,6 @@ class DocumentosController extends Controller
 
         if (!empty($keyword)) {
             $documentos = Documento::where('credencial_id', 'LIKE', "%$keyword%")
-                ->orWhere('cuota_id', 'LIKE', "%$keyword%")
                 ->orWhere('licencia_id', 'LIKE', "%$keyword%")
                 ->orWhere('comprobante_pago_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
@@ -54,7 +53,6 @@ class DocumentosController extends Controller
     {
         $this->validate($request, [
 			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
 			'comprobante_pago_id' => 'required|min:5',
 			'licencia_id' => 'required|min:5'
 		]);
@@ -105,7 +103,6 @@ class DocumentosController extends Controller
     {
         $this->validate($request, [
 			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
 			'comprobante_pago_id' => 'required|min:5',
 			'licencia_id' => 'required|min:5'
 		]);

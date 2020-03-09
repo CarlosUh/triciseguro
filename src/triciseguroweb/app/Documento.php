@@ -25,23 +25,19 @@ class Documento extends Model
      *
      * @var array
      */
-    protected $fillable = ['credencial_id', 'cuota_id', 'licencia_id', 'comprobante_pago_id'];
+    protected $fillable = ['credencial_id', 'licencia_id', 'comprobante_pago_id'];
 
     public function credencial()
     {
-        return $this->belongsTo('App\Models\Credencial');
-    }
-    public function cuota()
-    {
-        return $this->belongsTo('App\Models\Cuota');
+        return $this->hasMany('App\Models\Credencial', 'id');
     }
     public function licencia()
     {
-        return $this->belongsTo('App\Models\Licencia');
+        return $this->hasMany('App\Models\Licencia', 'id');
     }
     public function comprobante_pago()
     {
-        return $this->belongsTo('App\Models\Comprobante_Pago');
+        return $this->hasMany('App\Models\comprobante_pago', 'id');
     }
     
 }
