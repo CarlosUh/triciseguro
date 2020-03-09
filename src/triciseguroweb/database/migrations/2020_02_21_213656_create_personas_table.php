@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLicenciasTable extends Migration
+class CreatePersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,16 @@ class CreateLicenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('licencias', function (Blueprint $table) {
+        Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('nombre')->nullable();
             $table->string('apellido')->nullable();
-            $table->string('curp')->nullable();
-            $table->string('nacionalidad')->nullable();
-            $table->date('fecha_expedicion')->nullable();
-            $table->date('fecha_vencimiento')->nullable();
-            $table->integer('periodo')->nullable();
+            $table->string('f_nacimiento')->nullable();
+            $table->string('genero')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+           
             });
     }
 
@@ -32,6 +32,6 @@ class CreateLicenciasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('licencias');
+        Schema::drop('personas');
     }
 }

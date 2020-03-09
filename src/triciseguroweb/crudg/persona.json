@@ -1,0 +1,96 @@
+{
+	"model_name":"Persona",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"persona",
+    "fields": [	
+		{
+			"name":"nombre",
+			"type":"string"
+		},
+
+		{
+			"name":"apellido",
+			"type":"string"
+		},
+
+		{
+			"name":"f_nacimiento",
+			"type":"string"
+		},
+
+		{
+			"name":"genero",
+			"type":"string"
+		},
+
+		{
+			"name":"direccion",
+			"type":"string"
+		},
+
+		{
+			"name":"telefono",
+			"type":"string"
+		},
+
+		{
+			"name":"ubicacion_id",
+			"type":"integer#unsigned"
+
+		}
+
+
+	],
+
+	"foreign_keys": [
+        {
+            "column": "ubicacion_id",
+            "references": "id",
+            "on": "ubicacion",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "ubicacion",
+            "type": "belongsTo",
+            "class": "App\\Models\\ubicacion"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "apellido",
+            "rules": "required|min:5"
+        }
+        ,
+		{
+            "field": "f_nacimiento",
+            "rules": "required|min:8"
+        } ,
+		{
+            "field": "genero",
+            "rules": "required|min:8"
+        } ,
+		{
+            "field": "direccion",
+            "rules": "required|min:8"
+        }
+         ,
+		{
+            "field": "telefono",
+            "rules": "required|min:8"
+        } ,
+		{
+            "field": "ubicacion_id",
+            "rules": "required|min:8"
+        }
+
+	]
+
+}

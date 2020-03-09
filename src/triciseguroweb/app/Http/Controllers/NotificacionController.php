@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Documento;
+use App\Notificacion;
 use Illuminate\Http\Request;
 
-class DocumentosController extends Controller
+class NotificacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,15 @@ class DocumentosController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $documentos = Documento::where('credencial_id', 'LIKE', "%$keyword%")
-                ->orWhere('cuota_id', 'LIKE', "%$keyword%")
-                ->orWhere('licencia_id', 'LIKE', "%$keyword%")
-                ->orWhere('comprobante_pago_id', 'LIKE', "%$keyword%")
+            $notificacion = Notificacion::where('tipo', 'LIKE', "%$keyword%")
+                ->orWhere('mensaje', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $documentos = Documento::latest()->paginate($perPage);
+            $notificacion = Notificacion::latest()->paginate($perPage);
         }
 
-        return view('documentos.index', compact('documentos'));
+        return view('notificacion.index', compact('notificacion'));
     }
 
     /**
@@ -40,7 +39,7 @@ class DocumentosController extends Controller
      */
     public function create()
     {
-        return view('documentos.create');
+        return view('notificacion.create');
     }
 
     /**
@@ -53,16 +52,13 @@ class DocumentosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'persona_id' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        Documento::create($requestData);
+        Notificacion::create($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento added!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion added!');
     }
 
     /**
@@ -74,9 +70,9 @@ class DocumentosController extends Controller
      */
     public function show($id)
     {
-        $documento = Documento::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('documentos.show', compact('documento'));
+        return view('notificacion.show', compact('notificacion'));
     }
 
     /**
@@ -88,9 +84,9 @@ class DocumentosController extends Controller
      */
     public function edit($id)
     {
-        $documento = Documento::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('documentos.edit', compact('documento'));
+        return view('notificacion.edit', compact('notificacion'));
     }
 
     /**
@@ -104,17 +100,14 @@ class DocumentosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'persona_id' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        $documento = Documento::findOrFail($id);
-        $documento->update($requestData);
+        $notificacion = Notificacion::findOrFail($id);
+        $notificacion->update($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento updated!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion updated!');
     }
 
     /**
@@ -126,8 +119,8 @@ class DocumentosController extends Controller
      */
     public function destroy($id)
     {
-        Documento::destroy($id);
+        Notificacion::destroy($id);
 
-        return redirect('documentos')->with('flash_message', 'Documento deleted!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion deleted!');
     }
 }

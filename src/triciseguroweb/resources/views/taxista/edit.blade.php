@@ -1,15 +1,15 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('adminlte::page')
+@section('title', 'Laravel')
+@section('content_header')
     <div class="container">
         <div class="row">
             @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Create New Documento</div>
+                    <div class="card-header">Edit taxistum #{{ $taxistum->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/documentos') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/taxista') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,10 +21,11 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/documentos') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/taxista/' . $taxistum->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('documentos.form', ['formMode' => 'create'])
+                            @include ('taxista.form', ['formMode' => 'edit'])
 
                         </form>
 

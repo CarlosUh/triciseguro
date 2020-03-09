@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateQuejasTable extends Migration
+class CreateTaxistasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,14 @@ class CreateQuejasTable extends Migration
      */
     public function up()
     {
-        Schema::create('quejas', function (Blueprint $table) {
+        Schema::create('taxistas', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('nombre')->nullable();
-            $table->string('taxista')->nullable();
-            $table->text('descripcion')->nullable();
+            $table->string('pasajero')->nullable();
+            $table->string('quejas')->nullable();
+            $table->string('ruta')->nullable();
+            $table->string('mototaxi')->nullable();
             });
     }
 
@@ -28,6 +30,6 @@ class CreateQuejasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('quejas');
+        Schema::drop('taxistas');
     }
 }
