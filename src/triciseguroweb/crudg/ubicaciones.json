@@ -1,9 +1,9 @@
 {
-	"model_name":"Ubicacion",
+	"model_name":"Ubicaciones",
 	"soft_deletes":"yes",
 	"pk":"id",
 	"localize":"yes",
-	"table":"ubicacion",
+	"table":"ubicaciones",
     "fields": [		
         {
             "name": "nombre",
@@ -27,7 +27,7 @@
         },
         
         {
-            "name": "persona_id",
+            "name": "personas_id",
             "type": "integer#unsigned"
         }
     ],
@@ -36,7 +36,7 @@
         {
             "column": "persona_id",
             "references": "id",
-            "on": "persona",
+            "on": "personas",
             "onDelete": "cascade"
         }
     ],
@@ -45,7 +45,7 @@
         {
             "name": "persona",
             "type": "belongsTo",
-            "class": "App\\Models\\persona"
+            "class": "App\\Models\\personas"
         }
 
 

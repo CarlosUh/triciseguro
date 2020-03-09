@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ubicacion extends Model
+class Ubicacione extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'ubicacions';
+    protected $table = 'ubicaciones';
 
     /**
     * The database primary key value.

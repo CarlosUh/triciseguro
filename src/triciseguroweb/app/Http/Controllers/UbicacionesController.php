@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Ubicacion;
+use App\Ubicacione;
 use Illuminate\Http\Request;
 
-class UbicacionController extends Controller
+class UbicacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,17 +21,17 @@ class UbicacionController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $ubicacion = Ubicacion::where('nombre', 'LIKE', "%$keyword%")
+            $ubicaciones = Ubicacione::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('latitude', 'LIKE', "%$keyword%")
                 ->orWhere('longitud', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
                 ->orWhere('persona_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $ubicacion = Ubicacion::latest()->paginate($perPage);
+            $ubicaciones = Ubicacione::latest()->paginate($perPage);
         }
 
-        return view('ubicacion.index', compact('ubicacion'));
+        return view('ubicaciones.index', compact('ubicaciones'));
     }
 
     /**
@@ -41,7 +41,7 @@ class UbicacionController extends Controller
      */
     public function create()
     {
-        return view('ubicacion.create');
+        return view('ubicaciones.create');
     }
 
     /**
@@ -59,9 +59,9 @@ class UbicacionController extends Controller
 		]);
         $requestData = $request->all();
         
-        Ubicacion::create($requestData);
+        Ubicacione::create($requestData);
 
-        return redirect('ubicacion')->with('flash_message', 'Ubicacion added!');
+        return redirect('ubicaciones')->with('flash_message', 'Ubicacione added!');
     }
 
     /**
@@ -73,9 +73,9 @@ class UbicacionController extends Controller
      */
     public function show($id)
     {
-        $ubicacion = Ubicacion::findOrFail($id);
+        $ubicacione = Ubicacione::findOrFail($id);
 
-        return view('ubicacion.show', compact('ubicacion'));
+        return view('ubicaciones.show', compact('ubicacione'));
     }
 
     /**
@@ -87,9 +87,9 @@ class UbicacionController extends Controller
      */
     public function edit($id)
     {
-        $ubicacion = Ubicacion::findOrFail($id);
+        $ubicacione = Ubicacione::findOrFail($id);
 
-        return view('ubicacion.edit', compact('ubicacion'));
+        return view('ubicaciones.edit', compact('ubicacione'));
     }
 
     /**
@@ -108,10 +108,10 @@ class UbicacionController extends Controller
 		]);
         $requestData = $request->all();
         
-        $ubicacion = Ubicacion::findOrFail($id);
-        $ubicacion->update($requestData);
+        $ubicacione = Ubicacione::findOrFail($id);
+        $ubicacione->update($requestData);
 
-        return redirect('ubicacion')->with('flash_message', 'Ubicacion updated!');
+        return redirect('ubicaciones')->with('flash_message', 'Ubicacione updated!');
     }
 
     /**
@@ -123,8 +123,8 @@ class UbicacionController extends Controller
      */
     public function destroy($id)
     {
-        Ubicacion::destroy($id);
+        Ubicacione::destroy($id);
 
-        return redirect('ubicacion')->with('flash_message', 'Ubicacion deleted!');
+        return redirect('ubicaciones')->with('flash_message', 'Ubicacione deleted!');
     }
 }
