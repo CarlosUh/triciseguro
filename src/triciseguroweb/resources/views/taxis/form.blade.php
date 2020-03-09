@@ -13,6 +13,11 @@
     <input class="form-control" name="matricula" type="text" id="matricula" value="{{ isset($taxi->matricula) ? $taxi->matricula : ''}}" >
     {!! $errors->first('matricula', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('placa_id') ? 'has-error' : ''}}">
+    <label for="placa_id" class="control-label">{{ 'Placa Id' }}</label>
+    <input class="form-control" name="placa_id" type="number" id="placa_id" value="{{ isset($taxi->placa_id) ? $taxi->placa_id : ''}}" >
+    {!! $errors->first('placa_id', '<p class="help-block">:message</p>') !!}
+</div>
 
 
 <div class="form-group">

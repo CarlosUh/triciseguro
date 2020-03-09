@@ -22,3 +22,6 @@ Route::resource('viajes', 'ViajesController');
 Route::resource('licencia', 'LicenciaController');
 
 Route::resource('taxis', 'TaxisController');
+Route::resource('taxis', 'TaxisController');
+Route::resource('taxis', 'TaxisController');
+Route::resource('taxis', 'TaxisController');

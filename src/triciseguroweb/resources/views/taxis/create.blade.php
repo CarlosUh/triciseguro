@@ -1,6 +1,6 @@
-@extends('adminlte::page')
-@section('title', 'Laravel')
-@section('content_header')
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="row">
             @include('admin.sidebar')
