@@ -1,5 +1,5 @@
 <?php
-  
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('quejas', 'QuejasController');
 
 
 Route::resource('documentos', 'DocumentosController');
@@ -37,3 +37,4 @@ Route::resource('viajes', 'ViajesController');
 Route::resource('servicios', 'ServiciosController');
 
 Route::resource('promocion', 'PromocionController');
+
