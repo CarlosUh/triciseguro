@@ -1,0 +1,30 @@
+{
+    "model_name":"Viaje",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"viajes",
+    "fields": [     
+        {
+            "name": "solicitud_id",
+            "type": "integer#unsigned"
+        }
+             
+    ],    
+    "foreign_keys": [
+        {
+            "column": "solicitud_id",
+            "references": "id",
+            "on": "solicitudes",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "solicitudes",
+            "type": "hasMany",
+            "class": "App\\Models\\Solicitud"
+        }
+
+    ]
+}
