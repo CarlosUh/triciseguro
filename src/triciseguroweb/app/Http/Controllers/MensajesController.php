@@ -49,9 +49,7 @@ class MensajesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
-		]);
+
         $requestData = $request->all();
         
         Mensaje::create($requestData);
@@ -97,9 +95,7 @@ class MensajesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
-		]);
+    
         $requestData = $request->all();
         
         $mensaje = Mensaje::findOrFail($id);

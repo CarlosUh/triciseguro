@@ -25,7 +25,11 @@ class Mensaje extends Model
      *
      * @var array
      */
-    protected $fillable = ['Mensaje'];
+    protected $fillable = ['mensaje', 'taxista_id'];
 
+    public function taxista()
+    {
+        return $this->belongsTo('App\Models\Taxista');
+    }
     
 }
