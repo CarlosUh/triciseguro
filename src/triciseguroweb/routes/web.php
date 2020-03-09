@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 
+
 Route::resource('documentos', 'DocumentosController');
 Route::resource('persona', 'PersonaController');
 Route::resource('queja', 'QuejaController');
@@ -35,3 +36,4 @@ Route::resource('viajes', 'ViajesController');
 
 Route::resource('servicios', 'ServiciosController');
 
+Route::resource('promocion', 'PromocionController');
