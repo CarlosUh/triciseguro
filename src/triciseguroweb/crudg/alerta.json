@@ -27,13 +27,13 @@
         {
             "column": "pasajero_id",
             "references": "id",
-            "on": "pasajero",
+            "on": "pasajeros",
             "onDelete": "cascade"
         },
         {
             "column": "viaje_id",
             "references": "id",
-            "on": "viaje",
+            "on": "viajes",
             "onDelete": "cascade"
         }
     ],

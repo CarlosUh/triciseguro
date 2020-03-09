@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('alerta', 'AlertaController');
+Route::resource('alerta', 'AlertaController');
