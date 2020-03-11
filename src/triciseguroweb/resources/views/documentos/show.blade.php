@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $documento->id }}</td>
                                     </tr>
-                                    <tr><th> Credencial Id </th><td> {{ $documento->credencial_id }} </td></tr><tr><th> Licencia Id </th><td> {{ $documento->licencia_id }} </td></tr><tr><th> Comprobante Pago Id </th><td> {{ $documento->comprobante_pago_id }} </td></tr>
+                                    <tr><th> Nombre </th><td> {{ $documento->nombre }} </td></tr><tr><th> Apellido </th><td> {{ $documento->apellido }} </td></tr><tr><th> Curp </th><td> {{ $documento->curp }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -21,9 +21,11 @@ class DocumentosController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $documentos = Documento::where('credencial_id', 'LIKE', "%$keyword%")
-                ->orWhere('licencia_id', 'LIKE', "%$keyword%")
-                ->orWhere('comprobante_pago_id', 'LIKE', "%$keyword%")
+            $documentos = Documento::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('apellido', 'LIKE', "%$keyword%")
+                ->orWhere('curp', 'LIKE', "%$keyword%")
+                ->orWhere('fecha', 'LIKE', "%$keyword%")
+                ->orWhere('taxista_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $documentos = Documento::latest()->paginate($perPage);
@@ -52,9 +54,11 @@ class DocumentosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:20',
+			'curp' => 'required|min:5',
+			'fecha' => 'required|min:6',
+			'taxista_id' => 'required|min:20'
 		]);
         $requestData = $request->all();
         
@@ -102,9 +106,11 @@ class DocumentosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:20',
+			'curp' => 'required|min:5',
+			'fecha' => 'required|min:6',
+			'taxista_id' => 'required|min:20'
 		]);
         $requestData = $request->all();
         

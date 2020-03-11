@@ -12,9 +12,17 @@ class DocumentoSeeder extends Seeder
     public function run()
     {
         DB::table('documentos')->insert([
-            'credencial_id' => 1,
-            'licencia_id' => 1,
-            'comprobante_pago_id' => 1,
+            'nombre' => 'Irving Edilberto',
+            'apellido' => 'Cob Huchin',
+            'curp' => 'COHI950629IICR00',
+            'fecha' => '11/03/2020',
+            'taxista_id' => 1,
         ]);
     }
 }
+
+
+
+ 
+
+    

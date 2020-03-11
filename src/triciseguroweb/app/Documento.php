@@ -25,19 +25,11 @@ class Documento extends Model
      *
      * @var array
      */
-    protected $fillable = ['credencial_id', 'licencia_id', 'comprobante_pago_id'];
+    protected $fillable = ['nombre', 'apellido', 'curp', 'fecha', 'taxista_id'];
 
-    public function credencial()
+    public function taxista_id()
     {
-        return $this->hasMany('App\Models\Credencial', 'id');
-    }
-    public function licencia()
-    {
-        return $this->hasMany('App\Models\Licencia', 'id');
-    }
-    public function comprobante_pago()
-    {
-        return $this->hasMany('App\Models\comprobante_pago', 'id');
+        return $this->hasMany('App\Models\taxistum');
     }
     
 }
