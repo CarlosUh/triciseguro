@@ -1,0 +1,100 @@
+{
+	"model_name":"Solicitud",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"solicitud",
+    "fields": [
+      
+        {
+            "name": "promocion_id",
+            "type": "integer#unsigned"
+        },
+        
+        {
+            "name":"ruta_id",
+            "type":"integer#unsigned"
+        },
+        
+        {
+            "name":"calificacion_id",
+            "type":"integer#unsigned"
+        },
+        {
+            "name":"servicio_id",
+            "type":"integer#unsigned"
+        }
+      
+    ],
+    
+    "foreign_keys": [
+        {
+            "column": "promocion_id",
+            "references": "id",
+            "on": "promocion",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "ruta_id",
+            "references": "id",
+            "on": "Ruta",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "calificacion_id",
+            "references": "id",
+            "on": "calificacion",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "servicio_id",
+            "references": "id",
+            "on": "servicio",
+            "onDelete": "cascade"
+        }
+       
+    ],
+
+    "relationships": [
+        {
+            "name": "promociono_id", 
+            "type": "hasMany",
+            "class": "App\\Promocion"
+        },
+        {
+            "name": "ruta_id",
+            "type": "hasMany",
+            "class": "App\\Ruta"
+        },
+        {
+            "name": "calificacion_id",
+            "type": "hasMany",
+            "class": "App\\Calificacion"
+        },
+        {
+            "name": "servicio_id",
+            "type": "hasMany",
+            "class": "App\\Servicio"
+        }
+
+    ],
+    
+    "validations": [
+        {
+            "field": "promocion_id", 
+            "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "ruta_id",
+            "rules": "required|min:5"
+        },
+        {
+            "field": "calificacion_id",
+            "rules": "required|min:5"
+        },
+        {
+            "field": "servicio_id",
+            "rules": "required|min:5"
+        }
+    ]
+}
