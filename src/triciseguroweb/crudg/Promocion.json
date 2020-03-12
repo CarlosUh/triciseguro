@@ -16,13 +16,17 @@
         {
             "name": "tipo_promocion",
             "type": "text"
+        },
+        {
+            "name": "solicitud_id",
+            "type": "integer#unsigned"
         }
         
       
     ],
     "foreign_keys": [
         {
-            "column": "solicitud",
+            "column": "solicitud_id",
             "references": "id",
             "on": "solicitud",
             "onDelete": "cascade"
@@ -31,14 +35,14 @@
     ],
     "relationships": [
         {
-            "name": "solicitud",
+            "name": "solicitud_id",
             "type": "belongsTo",
-            "class": "App\\Models\\solicitud"
+            "class": "App\\Solicitud"
         }
     ],
     "validations": [
         {
-            "field": "solicitud",
+            "field": "solicitud_id",
             "rules": "required|min:5|max:20"
         }
     ]

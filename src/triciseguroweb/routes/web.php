@@ -24,7 +24,7 @@ Route::resource('queja', 'QuejaController');
 
 Route::resource('licencia', 'LicenciaController');
 
-Route::resource('solicitud', 'SolicitudController');
+
 
 Route::resource('contactos', 'ContactosController');
 
@@ -38,3 +38,5 @@ Route::resource('servicios', 'ServiciosController');
 
 Route::resource('promocion', 'PromocionController');
 
+
+Route::resource('solicitud', 'SolicitudController');

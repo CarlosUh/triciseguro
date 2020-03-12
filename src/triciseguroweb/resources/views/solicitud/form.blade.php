@@ -1,7 +1,7 @@
-<div class="form-group {{ $errors->has('promocion_id') ? 'has-error' : ''}}">
-    <label for="promocion_id" class="control-label">{{ 'Promocion Id' }}</label>
-    <input class="form-control" name="promocion_id" type="number" id="promocion_id" value="{{ isset($solicitud->promocion_id) ? $solicitud->promocion_id : ''}}" required>
-    {!! $errors->first('promocion_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('pasajero_id') ? 'has-error' : ''}}">
+    <label for="pasajero_id" class="control-label">{{ 'Pasajero Id' }}</label>
+    <input class="form-control" name="pasajero_id" type="number" id="pasajero_id" value="{{ isset($solicitud->pasajero_id) ? $solicitud->pasajero_id : ''}}" required>
+    {!! $errors->first('pasajero_id', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('ruta_id') ? 'has-error' : ''}}">
     <label for="ruta_id" class="control-label">{{ 'Ruta Id' }}</label>
@@ -13,10 +13,10 @@
     <input class="form-control" name="calificacion_id" type="number" id="calificacion_id" value="{{ isset($solicitud->calificacion_id) ? $solicitud->calificacion_id : ''}}" required>
     {!! $errors->first('calificacion_id', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('servicio_id') ? 'has-error' : ''}}">
-    <label for="servicio_id" class="control-label">{{ 'Servicio Id' }}</label>
-    <input class="form-control" name="servicio_id" type="number" id="servicio_id" value="{{ isset($solicitud->servicio_id) ? $solicitud->servicio_id : ''}}" required>
-    {!! $errors->first('servicio_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('taxita_id') ? 'has-error' : ''}}">
+    <label for="taxita_id" class="control-label">{{ 'Taxita Id' }}</label>
+    <input class="form-control" name="taxita_id" type="number" id="taxita_id" value="{{ isset($solicitud->taxita_id) ? $solicitud->taxita_id : ''}}" >
+    {!! $errors->first('taxita_id', '<p class="help-block">:message</p>') !!}
 </div>
 
 
