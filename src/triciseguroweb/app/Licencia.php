@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Licencia extends Model
+class Licencium extends Model
 {
     /**
      * The database table used by the model.
@@ -25,7 +25,11 @@ class Licencia extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'apellido', 'curp', 'nacionalidad', 'fecha_expedicion', 'fecha_vencimiento', 'periodo'];
+    protected $fillable = ['nacionalidad', 'fecha_expedicion', 'fecha_vencimiento', 'vigencia'];
 
+    public function documento()
+    {
+        return $this->hasOne('App\Models\Documento');
+    }
     
 }

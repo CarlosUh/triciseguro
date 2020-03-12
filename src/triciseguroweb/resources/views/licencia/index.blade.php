@@ -1,15 +1,15 @@
-@extends('adminlte::page')
-@section('title', 'Laravel')
+@extends('layouts.app')
+
 @section('content')
     <div class="container">
         <div class="row">
-            
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Licencia</div>
                     <div class="card-body">
-                        <a href="{{ url('/licencia/create') }}" class="btn btn-success btn-sm" title="Add New Licencia">
+                        <a href="{{ url('/licencia/create') }}" class="btn btn-success btn-sm" title="Add New Licencium">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
@@ -30,22 +30,22 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Nombre</th><th>Apellido</th><th>Curp</th><th>Actions</th>
+                                        <th>#</th><th>Nacionalidad</th><th>Fecha Expedicion</th><th>Fecha Vencimiento</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($licencia as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nombre }}</td><td>{{ $item->apellido }}</td><td>{{ $item->curp }}</td>
+                                        <td>{{ $item->nacionalidad }}</td><td>{{ $item->fecha_expedicion }}</td><td>{{ $item->fecha_vencimiento }}</td>
                                         <td>
-                                            <a href="{{ url('/licencia/' . $item->id) }}" title="View Licencia"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/licencia/' . $item->id . '/edit') }}" title="Edit Licencia"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/licencia/' . $item->id) }}" title="View Licencium"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/licencia/' . $item->id . '/edit') }}" title="Edit Licencium"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                                             <form method="POST" action="{{ url('/licencia' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Licencia" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Licencium" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>
