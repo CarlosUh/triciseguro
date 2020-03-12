@@ -1,9 +1,9 @@
 {
-    "model_name":"pasajero",
+    "model_name":"Pasajero",
     "soft_deletes":"yes",
     "pk":"id",
     "localize":"yes",
-    "table":"pasajero",
+    "table":"pasajeros",
     "fields": [
         {
             "name": "nombre",
