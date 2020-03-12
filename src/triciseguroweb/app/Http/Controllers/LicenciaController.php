@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Licencium;
+use App\Licencia;
 use Illuminate\Http\Request;
 
 class LicenciaController extends Controller
@@ -21,13 +21,13 @@ class LicenciaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $licencia = Licencium::where('nacionalidad', 'LIKE', "%$keyword%")
+            $licencia = Licencia::where('nacionalidad', 'LIKE', "%$keyword%")
                 ->orWhere('fecha_expedicion', 'LIKE', "%$keyword%")
                 ->orWhere('fecha_vencimiento', 'LIKE', "%$keyword%")
                 ->orWhere('vigencia', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $licencia = Licencium::latest()->paginate($perPage);
+            $licencia = Licencia::latest()->paginate($perPage);
         }
 
         return view('licencia.index', compact('licencia'));
@@ -57,9 +57,9 @@ class LicenciaController extends Controller
 		]);
         $requestData = $request->all();
         
-        Licencium::create($requestData);
+        Licencia::create($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium added!');
+        return redirect('licencia')->with('flash_message', 'Licencia added!');
     }
 
     /**
@@ -71,9 +71,9 @@ class LicenciaController extends Controller
      */
     public function show($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $licencia = Licencia::findOrFail($id);
 
-        return view('licencia.show', compact('licencium'));
+        return view('licencia.show', compact('licencia'));
     }
 
     /**
@@ -85,9 +85,9 @@ class LicenciaController extends Controller
      */
     public function edit($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $licencia = Licencia::findOrFail($id);
 
-        return view('licencia.edit', compact('licencium'));
+        return view('licencia.edit', compact('licencia'));
     }
 
     /**
@@ -105,10 +105,10 @@ class LicenciaController extends Controller
 		]);
         $requestData = $request->all();
         
-        $licencium = Licencium::findOrFail($id);
-        $licencium->update($requestData);
+        $licencia = Licencia::findOrFail($id);
+        $licencia->update($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium updated!');
+        return redirect('licencia')->with('flash_message', 'Licencia updated!');
     }
 
     /**
@@ -120,8 +120,8 @@ class LicenciaController extends Controller
      */
     public function destroy($id)
     {
-        Licencium::destroy($id);
+        Licencia::destroy($id);
 
-        return redirect('licencia')->with('flash_message', 'Licencium deleted!');
+        return redirect('licencia')->with('flash_message', 'Licencia deleted!');
     }
 }
