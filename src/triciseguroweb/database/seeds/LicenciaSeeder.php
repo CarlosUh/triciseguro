@@ -14,13 +14,11 @@ class LicenciaSeeder extends Seeder
     public function run()
     {
         DB::table('licencias')->insert([
-            'nombre' => 'Cesar',
-            'apellido' => 'Perez Lopez',
-            'curp' => 'PELC880426HYNCL970',
             'nacionalidad' => 'Mexicana',
             'fecha_expedicion' => '2020/01/03',
             'fecha_vencimiento' => '2030/01/03',
-            'periodo' => '5',
+            'vigencia' => 5,
+            'documento_id' => 1,
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ]);
