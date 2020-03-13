@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
+=======
+>>>>>>> remotes/origin/ParejaLuis
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
        
          $this->call(ViajesTableSeeder::class);
+=======
+        // $this->call(UsersTableSeeder::class);
+>>>>>>> remotes/origin/ParejaLuis
     }
 }

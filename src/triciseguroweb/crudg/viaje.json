@@ -3,7 +3,7 @@
     "soft_deletes":"yes",
     "pk":"id",
     "localize":"yes",
-    "table":"viajes",
+    "table":"viaje",
     "fields": [     
         {
             "name": "solicitud_id",
