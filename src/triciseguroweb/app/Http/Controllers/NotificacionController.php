@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Viaje;
+use App\Notificacion;
 use Illuminate\Http\Request;
 
-class ViajesController extends Controller
+class NotificacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,15 @@ class ViajesController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $viajes = Viaje::where('idSolicitud', 'LIKE', "%$keyword%")
-                ->orWhere('idAlerta', 'LIKE', "%$keyword%")
+            $notificacion = Notificacion::where('tipo', 'LIKE', "%$keyword%")
+                ->orWhere('mensaje', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $viajes = Viaje::latest()->paginate($perPage);
+            $notificacion = Notificacion::latest()->paginate($perPage);
         }
 
-        return view('viajes.index', compact('viajes'));
+        return view('notificacion.index', compact('notificacion'));
     }
 
     /**
@@ -38,7 +39,7 @@ class ViajesController extends Controller
      */
     public function create()
     {
-        return view('viajes.create');
+        return view('notificacion.create');
     }
 
     /**
@@ -50,12 +51,14 @@ class ViajesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+			'persona_id' => 'required|min:5|max:20'
+		]);
         $requestData = $request->all();
         
-        Viaje::create($requestData);
+        Notificacion::create($requestData);
 
-        return redirect('viajes')->with('flash_message', 'Viaje added!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion added!');
     }
 
     /**
@@ -67,9 +70,9 @@ class ViajesController extends Controller
      */
     public function show($id)
     {
-        $viaje = Viaje::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('viajes.show', compact('viaje'));
+        return view('notificacion.show', compact('notificacion'));
     }
 
     /**
@@ -81,9 +84,9 @@ class ViajesController extends Controller
      */
     public function edit($id)
     {
-        $viaje = Viaje::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('viajes.edit', compact('viaje'));
+        return view('notificacion.edit', compact('notificacion'));
     }
 
     /**
@@ -96,13 +99,15 @@ class ViajesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $this->validate($request, [
+			'persona_id' => 'required|min:5|max:20'
+		]);
         $requestData = $request->all();
         
-        $viaje = Viaje::findOrFail($id);
-        $viaje->update($requestData);
+        $notificacion = Notificacion::findOrFail($id);
+        $notificacion->update($requestData);
 
-        return redirect('viajes')->with('flash_message', 'Viaje updated!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion updated!');
     }
 
     /**
@@ -114,8 +119,8 @@ class ViajesController extends Controller
      */
     public function destroy($id)
     {
-        Viaje::destroy($id);
+        Notificacion::destroy($id);
 
-        return redirect('viajes')->with('flash_message', 'Viaje deleted!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion deleted!');
     }
 }

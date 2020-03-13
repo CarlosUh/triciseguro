@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Viaje extends Model
+class Contacto extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'viajes';
+    protected $table = 'contactos';
 
     /**
     * The database primary key value.
@@ -25,15 +25,11 @@ class Viaje extends Model
      *
      * @var array
      */
-    protected $fillable = ['idSolicitud', 'idAlerta'];
+    protected $fillable = ['nombre', 'numero'];
 
-    public function solicitud()
+    public function pasajero()
     {
-        return $this->hasMany('App\Solicitud');
-    }
-    public function alerta()
-    {
-        return $this->hasMany('App\Alerta');
+        return $this->belongsTo('App\Models\Pasajero');
     }
     
 }

@@ -1,5 +1,5 @@
 <?php
-
+  
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::resource('documentos', 'DocumentosController');
 Route::resource('persona', 'PersonaController');
 Route::resource('queja', 'QuejaController');
-Route::resource('viajes', 'ViajesController');
+
 Route::resource('licencia', 'LicenciaController');
 
+
+//Route::resource('taxis', 'TaxisController');
+//Route::resource('taxis', 'TaxisController');
 Route::resource('taxis', 'TaxisController');
 Route::resource('taxis', 'TaxisController');
-Route::resource('taxis', 'TaxisController');
-Route::resource('taxis', 'TaxisController');
+
+
+Route::resource('contactos', 'ContactosController');
+
+Route::resource('notificacion', 'NotificacionController');
+
+Route::resource('placa', 'PlacaController');
+//remotes/origin/NicKu
