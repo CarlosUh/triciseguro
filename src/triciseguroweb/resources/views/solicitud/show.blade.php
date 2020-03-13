@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
-@section('content_header')
+@section('content')
     <div class="container">
         <div class="row">
-          
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $solicitud->id }}</td>
                                     </tr>
-                                    <tr><th> Promocion Id </th><td> {{ $solicitud->promocion_id }} </td></tr><tr><th> Ruta Id </th><td> {{ $solicitud->ruta_id }} </td></tr><tr><th> Calificacion Id </th><td> {{ $solicitud->calificacion_id }} </td></tr>
+                                    <tr><th> Pasajero Id </th><td> {{ $solicitud->pasajero_id }} </td></tr><tr><th> Ruta Id </th><td> {{ $solicitud->ruta_id }} </td></tr><tr><th> Calificacion Id </th><td> {{ $solicitud->calificacion_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

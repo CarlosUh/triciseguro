@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
-@section('content_header')
+@section('content')
     <div class="container">
         <div class="row">
-         
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
@@ -30,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Promocion Id</th><th>Ruta Id</th><th>Calificacion Id</th><th>Actions</th>
+                                        <th>#</th><th>Pasajero Id</th><th>Ruta Id</th><th>Calificacion Id</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($solicitud as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->promocion_id }}</td><td>{{ $item->ruta_id }}</td><td>{{ $item->calificacion_id }}</td>
+                                        <td>{{ $item->pasajero_id }}</td><td>{{ $item->ruta_id }}</td><td>{{ $item->calificacion_id }}</td>
                                         <td>
                                             <a href="{{ url('/solicitud/' . $item->id) }}" title="View Solicitud"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/solicitud/' . $item->id . '/edit') }}" title="Edit Solicitud"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

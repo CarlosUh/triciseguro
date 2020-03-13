@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
-@section('content_header')
+@section('content')
     <div class="container">
         <div class="row">
-          
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">

@@ -21,10 +21,10 @@ class SolicitudController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $solicitud = Solicitud::where('promocion_id', 'LIKE', "%$keyword%")
+            $solicitud = Solicitud::where('pasajero_id', 'LIKE', "%$keyword%")
                 ->orWhere('ruta_id', 'LIKE', "%$keyword%")
                 ->orWhere('calificacion_id', 'LIKE', "%$keyword%")
-                ->orWhere('servicio_id', 'LIKE', "%$keyword%")
+                ->orWhere('taxita_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $solicitud = Solicitud::latest()->paginate($perPage);
@@ -53,10 +53,10 @@ class SolicitudController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'promocion_id' => 'required|min:5|max:20',
+			'pasajero_id' => 'required|min:5|max:20',
 			'ruta_id' => 'required|min:5',
 			'calificacion_id' => 'required|min:5',
-			'servicio_id' => 'required|min:5'
+			'taxista_id' => 'required|min:5'
 		]);
         $requestData = $request->all();
         
@@ -104,10 +104,10 @@ class SolicitudController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'promocion_id' => 'required|min:5|max:20',
+			'pasajero_id' => 'required|min:5|max:20',
 			'ruta_id' => 'required|min:5',
 			'calificacion_id' => 'required|min:5',
-			'servicio_id' => 'required|min:5'
+			'taxista_id' => 'required|min:5'
 		]);
         $requestData = $request->all();
         

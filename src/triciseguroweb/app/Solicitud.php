@@ -25,23 +25,39 @@ class Solicitud extends Model
      *
      * @var array
      */
-    protected $fillable = ['promocion_id', 'ruta_id', 'calificacion_id', 'servicio_id'];
+    protected $fillable = ['pasajero_id', 'ruta_id', 'calificacion_id', 'taxita_id'];
 
-    public function promociono_id()
+    public function promociones()
     {
         return $this->hasMany('App\Promocion');
     }
-    public function ruta_id()
+    public function ruta()
     {
-        return $this->hasMany('App\Ruta');
+        return $this->hasOne('App\Ruta');
     }
-    public function calificacion_id()
+    public function calificacion()
     {
-        return $this->hasMany('App\Calificacion');
+        return $this->hasOne('App\Calificacion');
     }
-    public function servicio_id()
+    public function mensaje()
+    {
+        return $this->hasMany('App\Mensaje');
+    }
+    public function taxista()
+    {
+        return $this->hasOne('App\Taxista');
+    }
+    public function pasajero()
+    {
+        return $this->hasOne('App\Pasajero');
+    }
+    public function servicio()
     {
         return $this->hasMany('App\Servicio');
+    }
+    public function viaje()
+    {
+        return $this->hasOne('App\Viaje');
     }
     
 }

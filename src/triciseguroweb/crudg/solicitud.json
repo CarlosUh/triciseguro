@@ -6,11 +6,12 @@
 	"table":"solicitud",
     "fields": [
       
-        {
-            "name": "promocion_id",
-            "type": "integer#unsigned"
-        },
+       
         
+        {
+            "name": "pasajero_id",
+            "type": "integer"
+        },
         {
             "name":"ruta_id",
             "type":"integer#unsigned"
@@ -21,17 +22,19 @@
             "type":"integer#unsigned"
         },
         {
-            "name":"servicio_id",
+            "name":"taxita_id",
             "type":"integer#unsigned"
         }
+       
       
     ],
     
     "foreign_keys": [
+      
         {
-            "column": "promocion_id",
+            "column": "pasajero_id",
             "references": "id",
-            "on": "promocion",
+            "on": "pasajero",
             "onDelete": "cascade"
         },
         {
@@ -47,9 +50,9 @@
             "onDelete": "cascade"
         },
         {
-            "column": "servicio_id",
+            "column": "taxita_id",
             "references": "id",
-            "on": "servicio",
+            "on": "taxita",
             "onDelete": "cascade"
         }
        
@@ -57,31 +60,55 @@
 
     "relationships": [
         {
-            "name": "promocion_id", 
+            "name": "promociones", 
             "type": "hasMany",
             "class": "App\\Promocion"
         },
         {
-            "name": "ruta_id",
-            "type": "hasMany",
+            "name": "ruta",
+            "type": "hasOne",
             "class": "App\\Ruta"
         },
         {
-            "name": "calificacion_id",
-            "type": "hasMany",
+            "name": "calificacion",
+            "type": "hasOne",
             "class": "App\\Calificacion"
         },
         {
-            "name": "servicio_id",
+            "name": "mensaje",
+            "type": "hasMany",
+            "class": "App\\Mensaje"
+        },
+        {
+            "name": "taxista",
+            "type": "hasOne",
+            "class": "App\\Taxista"
+        },
+        {
+            "name": "pasajero",
+            "type": "hasOne",
+            "class": "App\\Pasajero"
+        },
+        {
+            "name": "servicio",
             "type": "hasMany",
             "class": "App\\Servicio"
+        },
+        {
+            "name": "viaje",
+            "type": "hasOne",
+            "class": "App\\Viaje"
         }
+
+        
 
     ],
     
     "validations": [
         {
-            "field": "promocion_id", 
+       
+       
+            "field": "pasajero_id", 
             "rules": "required|min:5|max:20"
         },
 		{
@@ -93,7 +120,7 @@
             "rules": "required|min:5"
         },
         {
-            "field": "servicio_id",
+            "field": "taxista_id",
             "rules": "required|min:5"
         }
     ]

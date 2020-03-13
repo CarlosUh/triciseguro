@@ -27,9 +27,9 @@ class Viaje extends Model
      */
     protected $fillable = ['solicitud_id'];
 
-    public function solicitudes()
+    public function solicitud()
     {
-        return $this->hasMany('App\Models\Solicitud');
+        return $this->hasOne('App\Models\Solicitud');
     }
     
 }
