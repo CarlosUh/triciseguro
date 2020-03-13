@@ -1,6 +1,8 @@
 <?php
-
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ComprobantePagoSeeder extends Seeder
 {
@@ -12,10 +14,11 @@ class ComprobantePagoSeeder extends Seeder
     public function run()
     {
         DB::table('comprobante_pagos')->insert([
-            'fecha' => '2020-03-03',
             'cantidad' => 20,
             'descripcion' => 'Grupal',
-            'formapago' => 'efectivo',
+            'documento_id' => 1,
+            'created_at' => new DateTime,
+            'updated_at' => new DateTime,
         ]);
     }
 }

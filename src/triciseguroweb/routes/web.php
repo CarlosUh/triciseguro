@@ -18,4 +18,4 @@ Route::get('/', function () {
 Route::resource('tarea', 'TareaController');
 
 Route::resource('tareas', 'tareasController');
-Route::resource('comprobante_pago', 'Comprobante_pagoController');
+Route::resource('comprobante-pago', 'ComprobantePagoController');
