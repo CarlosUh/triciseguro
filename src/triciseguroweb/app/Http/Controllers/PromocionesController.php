@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Promocion;
+use App\Promocione;
 use Illuminate\Http\Request;
 
-class PromocionController extends Controller
+class PromocionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,15 @@ class PromocionController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $promocion = Promocion::where('nombre', 'LIKE', "%$keyword%")
+            $promociones = Promocione::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('fecha', 'LIKE', "%$keyword%")
                 ->orWhere('tipo_promocion', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $promocion = Promocion::latest()->paginate($perPage);
+            $promociones = Promocione::latest()->paginate($perPage);
         }
 
-        return view('promocion.index', compact('promocion'));
+        return view('promociones.index', compact('promociones'));
     }
 
     /**
@@ -39,7 +39,7 @@ class PromocionController extends Controller
      */
     public function create()
     {
-        return view('promocion.create');
+        return view('promociones.create');
     }
 
     /**
@@ -52,13 +52,13 @@ class PromocionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'solicitud' => 'required|min:5|max:20'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        Promocion::create($requestData);
+        Promocione::create($requestData);
 
-        return redirect('promocion')->with('flash_message', 'Promocion added!');
+        return redirect('promociones')->with('flash_message', 'Promocione added!');
     }
 
     /**
@@ -70,9 +70,9 @@ class PromocionController extends Controller
      */
     public function show($id)
     {
-        $promocion = Promocion::findOrFail($id);
+        $promocione = Promocione::findOrFail($id);
 
-        return view('promocion.show', compact('promocion'));
+        return view('promociones.show', compact('promocione'));
     }
 
     /**
@@ -84,9 +84,9 @@ class PromocionController extends Controller
      */
     public function edit($id)
     {
-        $promocion = Promocion::findOrFail($id);
+        $promocione = Promocione::findOrFail($id);
 
-        return view('promocion.edit', compact('promocion'));
+        return view('promociones.edit', compact('promocione'));
     }
 
     /**
@@ -100,14 +100,14 @@ class PromocionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'solicitud' => 'required|min:5|max:20'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        $promocion = Promocion::findOrFail($id);
-        $promocion->update($requestData);
+        $promocione = Promocione::findOrFail($id);
+        $promocione->update($requestData);
 
-        return redirect('promocion')->with('flash_message', 'Promocion updated!');
+        return redirect('promociones')->with('flash_message', 'Promocione updated!');
     }
 
     /**
@@ -119,8 +119,8 @@ class PromocionController extends Controller
      */
     public function destroy($id)
     {
-        Promocion::destroy($id);
+        Promocione::destroy($id);
 
-        return redirect('promocion')->with('flash_message', 'Promocion deleted!');
+        return redirect('promociones')->with('flash_message', 'Promocione deleted!');
     }
 }

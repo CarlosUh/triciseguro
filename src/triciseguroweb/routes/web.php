@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 
-Route::resource('promocion', 'PromocionController');
+//Route::resource('promocion', 'PromocionController');
+Route::resource('promociones', 'PromocionesController');

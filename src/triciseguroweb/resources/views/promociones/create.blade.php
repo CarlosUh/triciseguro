@@ -1,15 +1,15 @@
-@extends('adminlte::page')
-@section('title', 'Laravel')
-@section('content_header')
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="row">
-
+            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Create New Promocion</div>
+                    <div class="card-header">Create New Promocione</div>
                     <div class="card-body">
-                        <a href="{{ url('/promocion') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/promociones') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,10 +21,10 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/promocion') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/promociones') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('promocion.form', ['formMode' => 'create'])
+                            @include ('promociones.form', ['formMode' => 'create'])
 
                         </form>
 
