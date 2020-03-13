@@ -20,4 +20,3 @@ Route::get('/', function () {
 
 
 Route::resource('comprobante-pago', 'ComprobantePagoController');
-
