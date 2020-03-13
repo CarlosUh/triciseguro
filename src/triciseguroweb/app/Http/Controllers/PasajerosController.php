@@ -22,8 +22,8 @@ class PasajerosController extends Controller
 
         if (!empty($keyword)) {
             $pasajeros = Pasajero::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('contacto_id', 'LIKE', "%$keyword%")
-                ->orWhere('solicitud_id', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
+                ->orWhere('promocion_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $pasajeros = Pasajero::latest()->paginate($perPage);

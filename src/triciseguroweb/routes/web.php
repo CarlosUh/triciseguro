@@ -31,10 +31,10 @@ Route::resource('contactos', 'ContactosController');
 Route::resource('notificacion', 'NotificacionController');
 
 
-<<<<<<< HEAD
 
-Route::resource('pasajeros', 'PasajerosController');
-=======
+
+
+
 Route::resource('viajes', 'ViajesController');
 
 
@@ -42,4 +42,6 @@ Route::resource('servicios', 'ServiciosController');
 
 Route::resource('promocion', 'PromocionController');
 
->>>>>>> remotes/origin/ParejaLuis
+
+
+Route::resource('pasajeros', 'PasajerosController');

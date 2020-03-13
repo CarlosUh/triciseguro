@@ -25,15 +25,19 @@ class Pasajero extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'contacto_id', 'solicitud_id'];
+    protected $fillable = ['nombre', 'persona_id', 'promocion_id'];
 
-    public function contacto()
+    public function contactos()
     {
-        return $this->belongsTo('App\Contacto');
+        return $this->hasMany('App\Contacto');
     }
-    public function solicitud()
+    public function promociones()
     {
-        return $this->belongsTo('App\Solicitud');
+        return $this->hasOne('App\Promocion');
+    }
+    public function personas()
+    {
+        return $this->hasOne('App\Persona');
     }
     
 }

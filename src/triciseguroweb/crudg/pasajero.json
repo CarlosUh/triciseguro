@@ -9,45 +9,51 @@
             "name": "nombre",
             "type": "string"
         },
+
         {
-            "name": "contacto_id",
-            "type": "integer#unsigned"
-        },   
-        {
-            "name": "solicitud_id",
-            "type": "integer#unsigned"
+            "name": "persona_id",
+            "type": "string"
+        },   {
+            "name": "promocion_id",
+            "type": "string"
         }
+      
          
          
     ],
-      "foreign_keys": [
+    "foreign_keys": [
         {
-            "column": "contactos_id",
+            "column": "persona_id",
             "references": "id",
-            "on": "contactos",
+            "on": "persona",
             "onDelete": "cascade"
         },
-          
-          {
-            "column": "solicitud_id",
+         {
+            "column": "promocion_id",
             "references": "id",
-            "on": "solicitud",
+            "on": "promocion",
             "onDelete": "cascade"
         }
-          
-          
     ],
+      
     "relationships": [
-        {
-            "name": "contacto",
-            "type": "belongsTo",
-            "class": "App\\Contacto"
-        },
        
         {
-            "name": "solicitud",
-            "type": "belongsTo",
-            "class": "App\\Solicitud"
+            "name": "contactos",
+            "type": "hasMany",
+            "class": "App\\Contacto"
+        },
+
+        {
+            "name": "promociones",
+            "type": "hasOne",
+            "class": "App\\Promocion"
+        },
+
+        {
+            "name": "personas",
+            "type": "hasOne",
+            "class": "App\\Persona"
         }
        
        
