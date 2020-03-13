@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Licencia extends Model
+class Documento extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'licencias';
+    protected $table = 'documentos';
 
     /**
     * The database primary key value.
@@ -25,11 +25,11 @@ class Licencia extends Model
      *
      * @var array
      */
-    protected $fillable = ['nacionalidad', 'fecha_expedicion', 'fecha_vencimiento', 'vigencia'];
+    protected $fillable = ['nombre', 'apellido', 'curp', 'fecha', 'taxista_id'];
 
-    public function documento()
+    public function taxista_id()
     {
-        return $this->hasOne('App\Models\Documento');
+        return $this->hasMany('App\Models\taxistum');
     }
     
 }

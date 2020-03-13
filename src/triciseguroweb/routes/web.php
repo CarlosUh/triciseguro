@@ -1,5 +1,5 @@
 <?php
-
+  
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('licencia', 'LicenciaController');
 Route::resource('licencia', 'LicenciaController');
