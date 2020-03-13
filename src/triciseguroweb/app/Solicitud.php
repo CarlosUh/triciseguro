@@ -11,7 +11,7 @@ class Solicitud extends Model
      *
      * @var string
      */
-    protected $table = 'solicituds';
+    protected $table = 'solicitudes';
 
     /**
     * The database primary key value.
@@ -27,10 +27,6 @@ class Solicitud extends Model
      */
     protected $fillable = ['pasajero_id', 'ruta_id', 'calificacion_id', 'taxita_id'];
 
-    public function promociones()
-    {
-        return $this->hasMany('App\Promocion');
-    }
     public function ruta()
     {
         return $this->hasOne('App\Ruta');
@@ -39,9 +35,9 @@ class Solicitud extends Model
     {
         return $this->hasOne('App\Calificacion');
     }
-    public function mensaje()
+    public function mensajes()
     {
-        return $this->hasMany('App\Mensaje');
+        return $this->belongsTo('App\Mensaje');
     }
     public function taxista()
     {
@@ -53,11 +49,11 @@ class Solicitud extends Model
     }
     public function servicio()
     {
-        return $this->hasMany('App\Servicio');
+        return $this->belongsTo('App\Servicio');
     }
     public function viaje()
     {
-        return $this->hasOne('App\Viaje');
+        return $this->belongsTo('App\Viaje');
     }
     
 }

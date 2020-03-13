@@ -3,14 +3,14 @@
 	"soft_deletes":"yes",
 	"pk":"id",
 	"localize":"yes",
-	"table":"solicitud",
+	"table":"solicitudes",
     "fields": [
       
        
         
         {
             "name": "pasajero_id",
-            "type": "integer"
+            "type": "integer#unsigned"
         },
         {
             "name":"ruta_id",
@@ -34,36 +34,32 @@
         {
             "column": "pasajero_id",
             "references": "id",
-            "on": "pasajero",
+            "on": "pasajeros",
             "onDelete": "cascade"
         },
         {
             "column": "ruta_id",
             "references": "id",
-            "on": "ruta",
+            "on": "rutas",
             "onDelete": "cascade"
         },
         {
             "column": "calificacion_id",
             "references": "id",
-            "on": "calificacion",
+            "on": "calificaciones",
             "onDelete": "cascade"
         },
         {
             "column": "taxita_id",
             "references": "id",
-            "on": "taxita",
+            "on": "taxitas",
             "onDelete": "cascade"
         }
        
     ],
 
     "relationships": [
-        {
-            "name": "promociones", 
-            "type": "hasMany",
-            "class": "App\\Promocion"
-        },
+
         {
             "name": "ruta",
             "type": "hasOne",
@@ -75,8 +71,8 @@
             "class": "App\\Calificacion"
         },
         {
-            "name": "mensaje",
-            "type": "hasMany",
+            "name": "mensajes",
+            "type": "belongsTo",
             "class": "App\\Mensaje"
         },
         {
@@ -91,25 +87,21 @@
         },
         {
             "name": "servicio",
-            "type": "hasMany",
+            "type": "belongsTo",
             "class": "App\\Servicio"
         },
         {
             "name": "viaje",
-            "type": "hasOne",
+            "type": "belongsTo",
             "class": "App\\Viaje"
-        }
-
-        
+        }     
 
     ],
     
     "validations": [
         {
-       
-       
             "field": "pasajero_id", 
-            "rules": "required|min:5|max:20"
+            "rules": "required|min:5"
         },
 		{
             "field": "ruta_id",

@@ -36,7 +36,5 @@ Route::resource('viajes', 'ViajesController');
 
 Route::resource('servicios', 'ServiciosController');
 
-Route::resource('promocion', 'PromocionController');
-
 
 Route::resource('solicitud', 'SolicitudController');

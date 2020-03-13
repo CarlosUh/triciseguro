@@ -53,7 +53,7 @@ class SolicitudController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'pasajero_id' => 'required|min:5|max:20',
+			'pasajero_id' => 'required|min:5',
 			'ruta_id' => 'required|min:5',
 			'calificacion_id' => 'required|min:5',
 			'taxista_id' => 'required|min:5'
@@ -104,7 +104,7 @@ class SolicitudController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'pasajero_id' => 'required|min:5|max:20',
+			'pasajero_id' => 'required|min:5',
 			'ruta_id' => 'required|min:5',
 			'calificacion_id' => 'required|min:5',
 			'taxista_id' => 'required|min:5'
