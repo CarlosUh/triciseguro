@@ -19,28 +19,6 @@
         }
         
       
-    ],
-    "foreign_keys": [
-        {
-            "column": "pasajero_id",
-            "references": "id",
-            "on": "solicitud",
-            "onDelete": "cascade"
-        }
-       
-    ],
-    "relationships": [
-        {
-            "name": "pasajero",
-            "type": "hasOne",
-            "class": "App\\Models\\solicitud"
-        }
-    ],
-    "validations": [
-        {
-            "field": "nombre",
-            "rules": "required|min:5|max:20"
-        }
     ]
 	
 }
