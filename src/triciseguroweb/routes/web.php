@@ -24,10 +24,7 @@ Route::resource('queja', 'QuejaController');
 Route::resource('licencia', 'LicenciaController');
 
 
-//Route::resource('taxis', 'TaxisController');
-//Route::resource('taxis', 'TaxisController');
-Route::resource('taxis', 'TaxisController');
-Route::resource('taxis', 'TaxisController');
+
 
 
 Route::resource('contactos', 'ContactosController');
@@ -35,4 +32,6 @@ Route::resource('contactos', 'ContactosController');
 Route::resource('notificacion', 'NotificacionController');
 
 Route::resource('placa', 'PlacaController');
-//remotes/origin/NicKu
+
+
+Route::resource('taxis', 'TaxisController');

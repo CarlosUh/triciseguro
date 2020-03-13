@@ -25,11 +25,11 @@ class Taxi extends Model
      *
      * @var array
      */
-    protected $fillable = ['marca', 'modelo', 'matricula', 'placa_id'];
+    protected $fillable = ['marca', 'modelo', 'matricula'];
 
     public function placa()
     {
-        return $this->belongsTo('App\Models\Placa');
+        return $this->hasMany('App\Models\Placa');
     }
     
 }

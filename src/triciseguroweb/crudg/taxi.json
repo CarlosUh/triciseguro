@@ -16,25 +16,15 @@
         {
             "name": "matricula",
             "type": "string"
-        },
-        {
-            "name": "placa_id",
-            "type": "integer#unsigned"
         }
-        
     ],
     "foreign_keys": [
-        {
-            "column": "placa_id",
-            "references": "id",
-            "on": "placas",
-            "onDelete": "cascade"
-        }
+        
     ],
     "relationships": [
         {
             "name": "placa",
-            "type": "belongsTo",
+            "type": "hasMany",
             "class": "App\\Models\\Placa"
         }
 

@@ -24,7 +24,6 @@ class TaxisController extends Controller
             $taxis = Taxi::where('marca', 'LIKE', "%$keyword%")
                 ->orWhere('modelo', 'LIKE', "%$keyword%")
                 ->orWhere('matricula', 'LIKE', "%$keyword%")
-                ->orWhere('placa_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $taxis = Taxi::latest()->paginate($perPage);
