@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::resource('quejas', 'QuejasController');
+Route::resource('persona', 'PersonaController');
+Route::resource('queja', 'QuejaController');
+Route::resource('licencia', 'LicenciaController');
 
 
+Route::resource('taxista', 'TaxistaController');
