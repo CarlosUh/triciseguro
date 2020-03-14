@@ -18,14 +18,4 @@ Route::get('/', function () {
 
 
 
-Route::resource('persona', 'PersonaController');
-Route::resource('queja', 'QuejaController');
-
-Route::resource('licencia', 'LicenciaController');
-
-
-Route::resource('contactos', 'ContactosController');
-
-Route::resource('notificacion', 'NotificacionController');
-
-Route::resource('documentos', 'DocumentosController');
+Route::resource('comprobante_pago', 'ComprobantePagoController');
