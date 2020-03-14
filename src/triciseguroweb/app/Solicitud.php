@@ -25,7 +25,7 @@ class Solicitud extends Model
      *
      * @var array
      */
-    protected $fillable = ['pasajero_id', 'ruta_id', 'calificacion_id', 'taxita_id'];
+    protected $fillable = ['pasajero_id', 'ruta_id', 'calificacion_id', 'taxista_id'];
 
     public function ruta()
     {

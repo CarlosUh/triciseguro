@@ -22,7 +22,7 @@
             "type":"integer#unsigned"
         },
         {
-            "name":"taxita_id",
+            "name":"taxista_id",
             "type":"integer#unsigned"
         }
        
@@ -50,9 +50,9 @@
             "onDelete": "cascade"
         },
         {
-            "column": "taxita_id",
+            "column": "taxista_id",
             "references": "id",
-            "on": "taxitas",
+            "on": "taxistas",
             "onDelete": "cascade"
         }
        
