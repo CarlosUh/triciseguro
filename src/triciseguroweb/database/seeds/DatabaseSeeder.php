@@ -11,13 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
         $this->call(ComprobantePagoSeeder::class);
-=======
-        //
-
-         $this->call(DocumentoSeeder::class);
-       
->>>>>>> remotes/origin/IrvingCob
     }
 }

@@ -1,5 +1,5 @@
 <?php
-  
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,4 @@ Route::get('/', function () {
 });
 
 
-
-
-Route::resource('comprobante_pago', 'ComprobantePagoController');
+Route::resource('comprobante-pago', 'ComprobantePagoController');
