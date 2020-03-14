@@ -19,5 +19,4 @@ Route::get('/', function () {
 
 
 
-
 Route::resource('documentos', 'DocumentosController');
