@@ -27,4 +27,8 @@ Route::resource('licencia', 'LicenciaController');
 Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
+Route::resource('taxista', 'TaxistaController');
 
+Route::resource('credencial', 'CredencialController');
+
+ 
