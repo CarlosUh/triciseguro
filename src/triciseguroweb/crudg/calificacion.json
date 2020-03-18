@@ -16,6 +16,10 @@
         {
             "name": "calificacion",
             "type": "text"
+        },
+        {
+            "name": "taxista_id",
+            "type": "integer#unsigned"
         }
     ],
 
@@ -23,7 +27,7 @@
         {
             "column": "taxista_id",
             "references": "id",
-            "on": "taxista",
+            "on": "taxistas",
             "onDelete": "cascade"
         }
     ],
