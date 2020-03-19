@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Licencium;
+use App\Notificacion;
 use Illuminate\Http\Request;
 
-class LicenciaController extends Controller
+class NotificacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,19 +21,15 @@ class LicenciaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $licencia = Licencium::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('apellido', 'LIKE', "%$keyword%")
-                ->orWhere('curp', 'LIKE', "%$keyword%")
-                ->orWhere('nacionalidad', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_expedicion', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_vencimiento', 'LIKE', "%$keyword%")
-                ->orWhere('periodo', 'LIKE', "%$keyword%")
+            $notificacion = Notificacion::where('tipo', 'LIKE', "%$keyword%")
+                ->orWhere('mensaje', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $licencia = Licencium::latest()->paginate($perPage);
+            $notificacion = Notificacion::latest()->paginate($perPage);
         }
 
-        return view('licencia.index', compact('licencia'));
+        return view('notificacion.index', compact('notificacion'));
     }
 
     /**
@@ -43,7 +39,7 @@ class LicenciaController extends Controller
      */
     public function create()
     {
-        return view('licencia.create');
+        return view('notificacion.create');
     }
 
     /**
@@ -56,15 +52,13 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'persona_id' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        Licencium::create($requestData);
+        Notificacion::create($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium added!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion added!');
     }
 
     /**
@@ -76,9 +70,9 @@ class LicenciaController extends Controller
      */
     public function show($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('licencia.show', compact('licencium'));
+        return view('notificacion.show', compact('notificacion'));
     }
 
     /**
@@ -90,9 +84,9 @@ class LicenciaController extends Controller
      */
     public function edit($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $notificacion = Notificacion::findOrFail($id);
 
-        return view('licencia.edit', compact('licencium'));
+        return view('notificacion.edit', compact('notificacion'));
     }
 
     /**
@@ -106,16 +100,14 @@ class LicenciaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'persona_id' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        $licencium = Licencium::findOrFail($id);
-        $licencium->update($requestData);
+        $notificacion = Notificacion::findOrFail($id);
+        $notificacion->update($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium updated!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion updated!');
     }
 
     /**
@@ -127,8 +119,8 @@ class LicenciaController extends Controller
      */
     public function destroy($id)
     {
-        Licencium::destroy($id);
+        Notificacion::destroy($id);
 
-        return redirect('licencia')->with('flash_message', 'Licencium deleted!');
+        return redirect('notificacion')->with('flash_message', 'Notificacion deleted!');
     }
 }

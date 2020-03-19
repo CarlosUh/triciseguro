@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Licencium;
+use App\Queja;
 use Illuminate\Http\Request;
 
-class LicenciaController extends Controller
+class QuejaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,19 +21,15 @@ class LicenciaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $licencia = Licencium::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('apellido', 'LIKE', "%$keyword%")
-                ->orWhere('curp', 'LIKE', "%$keyword%")
-                ->orWhere('nacionalidad', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_expedicion', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_vencimiento', 'LIKE', "%$keyword%")
-                ->orWhere('periodo', 'LIKE', "%$keyword%")
+            $queja = Queja::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('taxista', 'LIKE', "%$keyword%")
+                ->orWhere('descripcion', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $licencia = Licencium::latest()->paginate($perPage);
+            $queja = Queja::latest()->paginate($perPage);
         }
 
-        return view('licencia.index', compact('licencia'));
+        return view('queja.index', compact('queja'));
     }
 
     /**
@@ -43,7 +39,7 @@ class LicenciaController extends Controller
      */
     public function create()
     {
-        return view('licencia.create');
+        return view('queja.create');
     }
 
     /**
@@ -56,15 +52,13 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        Licencium::create($requestData);
+        Queja::create($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium added!');
+        return redirect('queja')->with('flash_message', 'Queja added!');
     }
 
     /**
@@ -76,9 +70,9 @@ class LicenciaController extends Controller
      */
     public function show($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $queja = Queja::findOrFail($id);
 
-        return view('licencia.show', compact('licencium'));
+        return view('queja.show', compact('queja'));
     }
 
     /**
@@ -90,9 +84,9 @@ class LicenciaController extends Controller
      */
     public function edit($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $queja = Queja::findOrFail($id);
 
-        return view('licencia.edit', compact('licencium'));
+        return view('queja.edit', compact('queja'));
     }
 
     /**
@@ -106,16 +100,14 @@ class LicenciaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        $licencium = Licencium::findOrFail($id);
-        $licencium->update($requestData);
+        $queja = Queja::findOrFail($id);
+        $queja->update($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium updated!');
+        return redirect('queja')->with('flash_message', 'Queja updated!');
     }
 
     /**
@@ -127,8 +119,8 @@ class LicenciaController extends Controller
      */
     public function destroy($id)
     {
-        Licencium::destroy($id);
+        Queja::destroy($id);
 
-        return redirect('licencia')->with('flash_message', 'Licencium deleted!');
+        return redirect('queja')->with('flash_message', 'Queja deleted!');
     }
 }

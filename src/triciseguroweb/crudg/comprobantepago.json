@@ -1,9 +1,9 @@
 {
-	"model_name":"Comprobante_pago",
-	"soft_deletes":"yes",
-	"pk":"id",
-	"localize":"yes",
-	"table":"comprobante_pagos",
+    "model_name":"Comprobante_pago",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"comprobante_pagos",
     "fields": [
         {
             "name": "cantidad",
