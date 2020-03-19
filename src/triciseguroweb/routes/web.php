@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 
-
+Route::resource('documentos', 'DocumentosController');
 Route::resource('contactos', 'ContactosController');
 <<<<<<< .mine
 

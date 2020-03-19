@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Taxistum;
+use App\Persona;
 use Illuminate\Http\Request;
 
-class TaxistaController extends Controller
+class PersonaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,17 +21,18 @@ class TaxistaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $taxista = Taxistum::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('persona_id', 'LIKE', "%$keyword%")
-                ->orWhere('quejas', 'LIKE', "%$keyword%")
-                ->orWhere('ruta', 'LIKE', "%$keyword%")
-                ->orWhere('mototaxi', 'LIKE', "%$keyword%")
+            $persona = Persona::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('apellido', 'LIKE', "%$keyword%")
+                ->orWhere('f_nacimiento', 'LIKE', "%$keyword%")
+                ->orWhere('genero', 'LIKE', "%$keyword%")
+                ->orWhere('direccion', 'LIKE', "%$keyword%")
+                ->orWhere('telefono', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $taxista = Taxistum::latest()->paginate($perPage);
+            $persona = Persona::latest()->paginate($perPage);
         }
 
-        return view('taxista.index', compact('taxista'));
+        return view('personas.index', compact('persona'));
     }
 
     /**
@@ -41,7 +42,7 @@ class TaxistaController extends Controller
      */
     public function create()
     {
-        return view('taxista.create');
+        return view('personas.create');
     }
 
     /**
@@ -54,14 +55,19 @@ class TaxistaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'name' => 'required|min:5|max:20',
-			'persona' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        Taxistum::create($requestData);
+        Persona::create($requestData);
 
-        return redirect('taxista')->with('flash_message', 'Taxistum added!');
+        return redirect('personas')->with('flash_message', 'Persona added!');
     }
 
     /**
@@ -73,9 +79,9 @@ class TaxistaController extends Controller
      */
     public function show($id)
     {
-        $taxistum = Taxistum::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('taxista.show', compact('taxistum'));
+        return view('personas.show', compact('persona'));
     }
 
     /**
@@ -87,9 +93,9 @@ class TaxistaController extends Controller
      */
     public function edit($id)
     {
-        $taxistum = Taxistum::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('taxista.edit', compact('taxistum'));
+        return view('personas.edit', compact('persona'));
     }
 
     /**
@@ -103,15 +109,20 @@ class TaxistaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'name' => 'required|min:5|max:20',
-			'persona' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        $taxistum = Taxistum::findOrFail($id);
-        $taxistum->update($requestData);
+        $persona = Persona::findOrFail($id);
+        $persona->update($requestData);
 
-        return redirect('taxista')->with('flash_message', 'Taxistum updated!');
+        return redirect('personas')->with('flash_message', 'Persona updated!');
     }
 
     /**
@@ -123,8 +134,8 @@ class TaxistaController extends Controller
      */
     public function destroy($id)
     {
-        Taxistum::destroy($id);
+        Persona::destroy($id);
 
-        return redirect('taxista')->with('flash_message', 'Taxistum deleted!');
+        return redirect('personas')->with('flash_message', 'Persona deleted!');
     }
 }
