@@ -1,0 +1,50 @@
+{
+	"model_name":"Licencia",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"licencias",
+    "fields": [
+        {
+            "name": "nacionalidad",
+            "type": "string"
+        },
+        {
+            "name": "fecha_expedicion",
+            "type": "date"
+        },
+        {
+            "name":"fecha_vencimiento",
+            "type":"date"
+        },
+        {
+            "name":"vigencia",
+            "type":"integer"
+        }
+    ],
+    
+    "foreign_keys": [
+        {
+            "column": "documento_id",
+            "references": "id",
+            "on": "documento",
+            "onDelete": "cascade"
+        }
+    ],
+
+    "relationships": [
+        {
+            "name": "documento",
+            "type": "hasOne",
+            "class": "App\\Models\\Documento"
+        }
+
+    ],
+    "validations": [
+        {
+            "field": "",
+            "rules": ""
+        }
+       
+    ]
+}
