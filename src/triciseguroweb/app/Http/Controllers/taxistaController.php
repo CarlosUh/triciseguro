@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Contacto;
+use App\Taxistum;
 use Illuminate\Http\Request;
 
-class ContactosController extends Controller
+class TaxistaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,17 @@ class ContactosController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $contactos = Contacto::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('numero', 'LIKE', "%$keyword%")
+            $taxista = Taxistum::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
+                ->orWhere('quejas', 'LIKE', "%$keyword%")
+                ->orWhere('ruta', 'LIKE', "%$keyword%")
+                ->orWhere('mototaxi', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $contactos = Contacto::latest()->paginate($perPage);
+            $taxista = Taxistum::latest()->paginate($perPage);
         }
 
-        return view('contactos.index', compact('contactos'));
+        return view('taxista.index', compact('taxista'));
     }
 
     /**
@@ -38,7 +41,7 @@ class ContactosController extends Controller
      */
     public function create()
     {
-        return view('contactos.create');
+        return view('taxista.create');
     }
 
     /**
@@ -50,12 +53,15 @@ class ContactosController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+			'name' => 'required|min:5|max:20',
+			'persona' => 'required|min:5'
+		]);
         $requestData = $request->all();
         
-        Contacto::create($requestData);
+        Taxistum::create($requestData);
 
-        return redirect('contactos')->with('flash_message', 'Contacto added!');
+        return redirect('taxista')->with('flash_message', 'Taxistum added!');
     }
 
     /**
@@ -67,9 +73,9 @@ class ContactosController extends Controller
      */
     public function show($id)
     {
-        $contacto = Contacto::findOrFail($id);
+        $taxistum = Taxistum::findOrFail($id);
 
-        return view('contactos.show', compact('contacto'));
+        return view('taxista.show', compact('taxistum'));
     }
 
     /**
@@ -81,9 +87,9 @@ class ContactosController extends Controller
      */
     public function edit($id)
     {
-        $contacto = Contacto::findOrFail($id);
+        $taxistum = Taxistum::findOrFail($id);
 
-        return view('contactos.edit', compact('contacto'));
+        return view('taxista.edit', compact('taxistum'));
     }
 
     /**
@@ -96,13 +102,16 @@ class ContactosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $this->validate($request, [
+			'name' => 'required|min:5|max:20',
+			'persona' => 'required|min:5'
+		]);
         $requestData = $request->all();
         
-        $contacto = Contacto::findOrFail($id);
-        $contacto->update($requestData);
+        $taxistum = Taxistum::findOrFail($id);
+        $taxistum->update($requestData);
 
-        return redirect('contactos')->with('flash_message', 'Contacto updated!');
+        return redirect('taxista')->with('flash_message', 'Taxistum updated!');
     }
 
     /**
@@ -114,8 +123,8 @@ class ContactosController extends Controller
      */
     public function destroy($id)
     {
-        Contacto::destroy($id);
+        Taxistum::destroy($id);
 
-        return redirect('contactos')->with('flash_message', 'Contacto deleted!');
+        return redirect('taxista')->with('flash_message', 'Taxistum deleted!');
     }
 }

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Licencia;
+use App\Persona;
 use Illuminate\Http\Request;
 
-class LicenciaController extends Controller
+class PersonaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,18 @@ class LicenciaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $licencia = Licencia::where('nacionalidad', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_expedicion', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_vencimiento', 'LIKE', "%$keyword%")
-                ->orWhere('vigencia', 'LIKE', "%$keyword%")
+            $persona = Persona::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('apellido', 'LIKE', "%$keyword%")
+                ->orWhere('f_nacimiento', 'LIKE', "%$keyword%")
+                ->orWhere('genero', 'LIKE', "%$keyword%")
+                ->orWhere('direccion', 'LIKE', "%$keyword%")
+                ->orWhere('telefono', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $licencia = Licencia::latest()->paginate($perPage);
+            $persona = Persona::latest()->paginate($perPage);
         }
 
-        return view('licencia.index', compact('licencia'));
+        return view('personas.index', compact('persona'));
     }
 
     /**
@@ -40,7 +42,7 @@ class LicenciaController extends Controller
      */
     public function create()
     {
-        return view('licencia.create');
+        return view('personas.create');
     }
 
     /**
@@ -53,13 +55,19 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'' => ''
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        Licencia::create($requestData);
+        Persona::create($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencia added!');
+        return redirect('personas')->with('flash_message', 'Persona added!');
     }
 
     /**
@@ -71,9 +79,9 @@ class LicenciaController extends Controller
      */
     public function show($id)
     {
-        $licencia = Licencia::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('licencia.show', compact('licencia'));
+        return view('personas.show', compact('persona'));
     }
 
     /**
@@ -85,9 +93,9 @@ class LicenciaController extends Controller
      */
     public function edit($id)
     {
-        $licencia = Licencia::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('licencia.edit', compact('licencia'));
+        return view('personas.edit', compact('persona'));
     }
 
     /**
@@ -101,14 +109,20 @@ class LicenciaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'' => ''
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        $licencia = Licencia::findOrFail($id);
-        $licencia->update($requestData);
+        $persona = Persona::findOrFail($id);
+        $persona->update($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencia updated!');
+        return redirect('personas')->with('flash_message', 'Persona updated!');
     }
 
     /**
@@ -120,8 +134,8 @@ class LicenciaController extends Controller
      */
     public function destroy($id)
     {
-        Licencia::destroy($id);
+        Persona::destroy($id);
 
-        return redirect('licencia')->with('flash_message', 'Licencia deleted!');
+        return redirect('personas')->with('flash_message', 'Persona deleted!');
     }
 }
