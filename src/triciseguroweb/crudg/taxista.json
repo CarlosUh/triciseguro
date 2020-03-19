@@ -1,18 +1,19 @@
 {
-	"model_name":"taxista",
+	"model_name":"Taxista",
 	"soft_deletes":"yes",
 	"pk":"id",
 	"localize":"yes",
-	"table":"taxista",
+	"table":"taxistas",
     "fields": [
         {
             "name": "nombre",
             "type": "string"
         },
         {
-            "name": "pasajero",
-            "type": "string"
-        },   {
+            "name": "persona_id",
+            "type":  "integer#unsigned"
+        },   
+        {
             "name": "quejas",
             "type": "string"
         },
@@ -25,13 +26,30 @@
             "type": "string"
         }
     ],
+    "foreign_keys": [
+        {
+            "column": "persona_id",
+            "references": "id",
+            "on": "persona",
+            "onDelete": "cascade"
+        }
+    ],
     "relationships": [
-
+        {
+            "name": "persona",
+            "type": "HasOne",
+            "class": "App\\Models\\Persona"
+        }
     ],
     "validations": [
         {
-            "field": "nombre",
+            "field": "name",
             "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "persona",
+            "rules": "required|min:5"
         }
     ]
+	
 }
