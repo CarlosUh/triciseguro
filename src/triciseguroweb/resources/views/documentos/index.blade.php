@@ -30,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Credencial Id</th><th>Cuota Id</th><th>Licencia Id</th><th>Actions</th>
+                                        <th>#</th><th>Nombre</th><th>Apellido</th><th>Curp</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($documentos as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->credencial_id }}</td><td>{{ $item->cuota_id }}</td><td>{{ $item->licencia_id }}</td>
+                                        <td>{{ $item->nombre }}</td><td>{{ $item->apellido }}</td><td>{{ $item->curp }}</td>
                                         <td>
                                             <a href="{{ url('/documentos/' . $item->id) }}" title="View Documento"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/documentos/' . $item->id . '/edit') }}" title="Edit Documento"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

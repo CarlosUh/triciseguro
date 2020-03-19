@@ -1,22 +1,27 @@
-<div class="form-group {{ $errors->has('credencial_id') ? 'has-error' : ''}}">
-    <label for="credencial_id" class="control-label">{{ 'Credencial Id' }}</label>
-    <input class="form-control" name="credencial_id" type="number" id="credencial_id" value="{{ isset($documento->credencial_id) ? $documento->credencial_id : ''}}" required>
-    {!! $errors->first('credencial_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('nombre') ? 'has-error' : ''}}">
+    <label for="nombre" class="control-label">{{ 'Nombre' }}</label>
+    <input class="form-control" name="nombre" type="text" id="nombre" value="{{ isset($documento->nombre) ? $documento->nombre : ''}}" required>
+    {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('cuota_id') ? 'has-error' : ''}}">
-    <label for="cuota_id" class="control-label">{{ 'Cuota Id' }}</label>
-    <input class="form-control" name="cuota_id" type="number" id="cuota_id" value="{{ isset($documento->cuota_id) ? $documento->cuota_id : ''}}" required>
-    {!! $errors->first('cuota_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('apellido') ? 'has-error' : ''}}">
+    <label for="apellido" class="control-label">{{ 'Apellido' }}</label>
+    <input class="form-control" name="apellido" type="text" id="apellido" value="{{ isset($documento->apellido) ? $documento->apellido : ''}}" required>
+    {!! $errors->first('apellido', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('licencia_id') ? 'has-error' : ''}}">
-    <label for="licencia_id" class="control-label">{{ 'Licencia Id' }}</label>
-    <input class="form-control" name="licencia_id" type="number" id="licencia_id" value="{{ isset($documento->licencia_id) ? $documento->licencia_id : ''}}" required>
-    {!! $errors->first('licencia_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('curp') ? 'has-error' : ''}}">
+    <label for="curp" class="control-label">{{ 'Curp' }}</label>
+    <input class="form-control" name="curp" type="text" id="curp" value="{{ isset($documento->curp) ? $documento->curp : ''}}" required>
+    {!! $errors->first('curp', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('comprobante_pago_id') ? 'has-error' : ''}}">
-    <label for="comprobante_pago_id" class="control-label">{{ 'Comprobante Pago Id' }}</label>
-    <input class="form-control" name="comprobante_pago_id" type="number" id="comprobante_pago_id" value="{{ isset($documento->comprobante_pago_id) ? $documento->comprobante_pago_id : ''}}" required>
-    {!! $errors->first('comprobante_pago_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('fecha') ? 'has-error' : ''}}">
+    <label for="fecha" class="control-label">{{ 'Fecha' }}</label>
+    <input class="form-control" name="fecha" type="text" id="fecha" value="{{ isset($documento->fecha) ? $documento->fecha : ''}}" required>
+    {!! $errors->first('fecha', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('taxista_id') ? 'has-error' : ''}}">
+    <label for="taxista_id" class="control-label">{{ 'Taxista Id' }}</label>
+    <input class="form-control" name="taxista_id" type="number" id="taxista_id" value="{{ isset($documento->taxista_id) ? $documento->taxista_id : ''}}" required>
+    {!! $errors->first('taxista_id', '<p class="help-block">:message</p>') !!}
 </div>
 
 

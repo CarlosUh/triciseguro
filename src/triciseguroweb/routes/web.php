@@ -17,18 +17,27 @@ Route::get('/', function () {
 
 
 
-Route::resource('documentos', 'DocumentosController');
-Route::resource('persona', 'PersonaController');
-Route::resource('queja', 'QuejaController');
 
-Route::resource('licencia', 'LicenciaController');
 
 
 Route::resource('contactos', 'ContactosController');
+<<<<<<< .mine
 
+=======
+
+>>>>>>> .theirs
 Route::resource('notificacion', 'NotificacionController');
 Route::resource('taxista', 'TaxistaController');
+<<<<<<< .mine
 
+=======
+
+>>>>>>> .theirs
 Route::resource('credencial', 'CredencialController');
+<<<<<<< .mine
 
  
+=======
+
+
+>>>>>>> .theirs
