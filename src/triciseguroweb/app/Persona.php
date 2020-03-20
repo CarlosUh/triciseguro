@@ -27,6 +27,16 @@ class Persona extends Model
      */
     protected $fillable = ['nombre', 'apellido', 'f_nacimiento', 'genero', 'direccion', 'telefono'];
 
-   
-    
+   public function ubicaciones()
+    {
+        return $this->hasMany('App\Models\Ubicacion');
+    }
+    public function taxista()
+    {
+        return $this->hasOne('App\Models\Taxista');
+    }
+    public function pasajero()
+    {
+        return $this->hasOne('App\Models\Pasajero');
+    }
 }

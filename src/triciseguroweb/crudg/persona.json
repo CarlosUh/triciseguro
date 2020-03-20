@@ -33,31 +33,29 @@
 		{
 			"name":"telefono",
 			"type":"string"
-		},
-
-		{
-			"name":"ubicacion_id",
-			"type":"integer#unsigned"
-
 		}
 
 
 	],
 
-	"foreign_keys": [
-        {
-            "column": "ubicacion_id",
-            "references": "id",
-            "on": "ubicacion",
-            "onDelete": "cascade"
-        }
-    ],
+
     "relationships": [
         {
-            "name": "ubicacion",
+            "name": "ubicaciones",
             "type": "belongsTo",
-            "class": "App\\Models\\ubicacion"
+            "class": "App\\Models\\Ubicacion"
+        },
+        {
+            "name": "pasajero",
+            "type": "hasOne",
+            "class": "App\\Models\\Pasajero"
+        },
+        {
+            "name": "taxista",
+            "type": "hasOne",
+            "class": "App\\Models\\Taxista"
         }
+
     ],
     "validations": [
         {
@@ -85,11 +83,7 @@
 		{
             "field": "telefono",
             "rules": "required|min:8"
-        } ,
-		{
-            "field": "ubicacion_id",
-            "rules": "required|min:8"
-        }
+        } 
 
 	]
 
