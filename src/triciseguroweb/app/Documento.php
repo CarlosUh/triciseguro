@@ -29,7 +29,7 @@ class Documento extends Model
 
     public function taxista_id()
     {
-        return $this->hasMany('App\Models\taxistum');
+        return $this->hasMany('App\Models\Taxistum');
     }
     
 }
