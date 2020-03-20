@@ -33,6 +33,7 @@ Route::resource('contactos', 'ContactosController');
 Route::resource('notificacion', 'NotificacionController');
 
 
+<<<<<<< HEAD
 
 Route::resource('viajes', 'ViajesController');
 
@@ -51,3 +52,6 @@ Route::resource('taxista', 'TaxistaController');
 
 Route::resource('calificaciones', 'CalificacionesController');
 
+=======
+Route::resource('ruta', 'RutaController');
+>>>>>>> remotes/origin/DiegoNaal
