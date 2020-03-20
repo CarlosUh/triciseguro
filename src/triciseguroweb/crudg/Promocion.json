@@ -1,0 +1,46 @@
+{
+	"model_name":"Promocion",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"Promociones",
+    "fields": [	
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "fecha",
+            "type": "datetime"
+        },
+        {
+            "name": "tipo_promocion",
+            "type": "text"
+        }
+        
+      
+    ],
+    "foreign_keys": [
+        {
+            "column": "pasajero_id",
+            "references": "id",
+            "on": "solicitud",
+            "onDelete": "cascade"
+        }
+       
+    ],
+    "relationships": [
+        {
+            "name": "pasajero",
+            "type": "hasOne",
+            "class": "App\\Models\\solicitud"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        }
+    ]
+	
+}

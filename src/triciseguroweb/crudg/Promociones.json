@@ -1,0 +1,24 @@
+{
+	"model_name":"Promocion",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"Promociones",
+    "fields": [	
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "fecha",
+            "type": "datetime"
+        },
+        {
+            "name": "tipo_promocion",
+            "type": "text"
+        }
+        
+      
+    ]
+	
+}

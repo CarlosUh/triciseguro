@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 @section('title', 'Laravel')
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Bienvenido</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p></p>
 
 
         <div class="flex-center position-ref full-height">
@@ -25,7 +25,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    
                 </div>
 
                 <div class="links">
