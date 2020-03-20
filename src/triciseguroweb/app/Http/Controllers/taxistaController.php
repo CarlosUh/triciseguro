@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\taxistum;
+use App\Taxistum;
 use Illuminate\Http\Request;
 
-class taxistaController extends Controller
+class TaxistaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,14 @@ class taxistaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $taxista = taxistum::where('nombre', 'LIKE', "%$keyword%")
+            $taxista = Taxistum::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('pasajero', 'LIKE', "%$keyword%")
                 ->orWhere('quejas', 'LIKE', "%$keyword%")
                 ->orWhere('ruta', 'LIKE', "%$keyword%")
                 ->orWhere('mototaxi', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $taxista = taxistum::latest()->paginate($perPage);
+            $taxista = Taxistum::latest()->paginate($perPage);
         }
 
         return view('taxista.index', compact('taxista'));
@@ -58,9 +58,9 @@ class taxistaController extends Controller
 		]);
         $requestData = $request->all();
         
-        taxistum::create($requestData);
+        Taxistum::create($requestData);
 
-        return redirect('taxista')->with('flash_message', 'taxistum added!');
+        return redirect('taxista')->with('flash_message', 'Taxistum added!');
     }
 
     /**
@@ -72,7 +72,7 @@ class taxistaController extends Controller
      */
     public function show($id)
     {
-        $taxistum = taxistum::findOrFail($id);
+        $taxistum = Taxistum::findOrFail($id);
 
         return view('taxista.show', compact('taxistum'));
     }
@@ -86,7 +86,7 @@ class taxistaController extends Controller
      */
     public function edit($id)
     {
-        $taxistum = taxistum::findOrFail($id);
+        $taxistum = Taxistum::findOrFail($id);
 
         return view('taxista.edit', compact('taxistum'));
     }
@@ -106,10 +106,10 @@ class taxistaController extends Controller
 		]);
         $requestData = $request->all();
         
-        $taxistum = taxistum::findOrFail($id);
+        $taxistum = Taxistum::findOrFail($id);
         $taxistum->update($requestData);
 
-        return redirect('taxista')->with('flash_message', 'taxistum updated!');
+        return redirect('taxista')->with('flash_message', 'Taxistum updated!');
     }
 
     /**
@@ -121,8 +121,8 @@ class taxistaController extends Controller
      */
     public function destroy($id)
     {
-        taxistum::destroy($id);
+        Taxistum::destroy($id);
 
-        return redirect('taxista')->with('flash_message', 'taxistum deleted!');
+        return redirect('taxista')->with('flash_message', 'Taxistum deleted!');
     }
 }
