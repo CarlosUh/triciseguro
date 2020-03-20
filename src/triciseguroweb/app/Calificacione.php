@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Calificacion extends Model
+class Calificacione extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'calificacions';
+    protected $table = 'calificaciones';
 
     /**
     * The database primary key value.
@@ -25,7 +25,7 @@ class Calificacion extends Model
      *
      * @var array
      */
-    protected $fillable = ['taxista', 'servicio', 'calificacion'];
+    protected $fillable = ['taxista', 'servicio', 'calificacion', 'taxista_id'];
 
     public function taxista_id()
     {
