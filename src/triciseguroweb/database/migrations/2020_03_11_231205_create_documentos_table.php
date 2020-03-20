@@ -15,12 +15,12 @@ class CreateDocumentosTable extends Migration
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('credencial_id')->unsigned();
-            $table->integer('licencia_id')->unsigned();
-            $table->integer('comprobante_pago_id')->unsigned();
-            $table->foreign('credencial_id')->references('id')->on('credencial')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('licencia')->references('id')->on('licencia')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('comprobante_pago')->references('id')->on('comprobante_pago')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('nombre')->nullable();
+            $table->string('apellido')->nullable();
+            $table->string('curp')->nullable();
+            $table->string('fecha')->nullable();
+            $table->integer('taxista_id')->unsigned();
+            $table->foreign('taxista_id')->references('id')->on('credencial')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 
