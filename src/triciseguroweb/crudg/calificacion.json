@@ -1,0 +1,43 @@
+{
+	"model_name":"Calificacion",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"calificaciones",
+    "fields": [
+        {
+            "name": "taxista",
+            "type": "text"
+        },
+        {
+            "name": "servicio",
+            "type": "text"
+        },
+        {
+            "name": "calificacion",
+            "type": "text"
+        },
+        {
+            "name": "taxista_id",
+            "type": "integer#unsigned"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "taxista_id",
+            "references": "id",
+            "on": "taxistas",
+            "onDelete": "cascade"
+        }
+    ],
+
+    "relationships": [
+        {
+            "name": "taxista_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\Taxista"
+        }
+
+    ]
+}
