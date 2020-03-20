@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Documento;
+use App\Persona;
 use Illuminate\Http\Request;
 
-class DocumentosController extends Controller
+class PersonaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,18 @@ class DocumentosController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $documentos = Documento::where('credencial_id', 'LIKE', "%$keyword%")
-                ->orWhere('cuota_id', 'LIKE', "%$keyword%")
-                ->orWhere('licencia_id', 'LIKE', "%$keyword%")
-                ->orWhere('comprobante_pago_id', 'LIKE', "%$keyword%")
+            $persona = Persona::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('apellido', 'LIKE', "%$keyword%")
+                ->orWhere('f_nacimiento', 'LIKE', "%$keyword%")
+                ->orWhere('genero', 'LIKE', "%$keyword%")
+                ->orWhere('direccion', 'LIKE', "%$keyword%")
+                ->orWhere('telefono', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $documentos = Documento::latest()->paginate($perPage);
+            $persona = Persona::latest()->paginate($perPage);
         }
 
-        return view('documentos.index', compact('documentos'));
+        return view('personas.index', compact('persona'));
     }
 
     /**
@@ -40,7 +42,7 @@ class DocumentosController extends Controller
      */
     public function create()
     {
-        return view('documentos.create');
+        return view('personas.create');
     }
 
     /**
@@ -53,16 +55,19 @@ class DocumentosController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        Documento::create($requestData);
+        Persona::create($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento added!');
+        return redirect('personas')->with('flash_message', 'Persona added!');
     }
 
     /**
@@ -74,9 +79,9 @@ class DocumentosController extends Controller
      */
     public function show($id)
     {
-        $documento = Documento::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('documentos.show', compact('documento'));
+        return view('personas.show', compact('persona'));
     }
 
     /**
@@ -88,9 +93,9 @@ class DocumentosController extends Controller
      */
     public function edit($id)
     {
-        $documento = Documento::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('documentos.edit', compact('documento'));
+        return view('personas.edit', compact('persona'));
     }
 
     /**
@@ -104,17 +109,20 @@ class DocumentosController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        $documento = Documento::findOrFail($id);
-        $documento->update($requestData);
+        $persona = Persona::findOrFail($id);
+        $persona->update($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento updated!');
+        return redirect('personas')->with('flash_message', 'Persona updated!');
     }
 
     /**
@@ -126,8 +134,8 @@ class DocumentosController extends Controller
      */
     public function destroy($id)
     {
-        Documento::destroy($id);
+        Persona::destroy($id);
 
-        return redirect('documentos')->with('flash_message', 'Documento deleted!');
+        return redirect('personas')->with('flash_message', 'Persona deleted!');
     }
 }

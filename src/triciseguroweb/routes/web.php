@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::resource('quejas', 'QuejasController');
 
 
@@ -38,3 +39,11 @@ Route::resource('servicios', 'ServiciosController');
 
 
 Route::resource('solicitud', 'SolicitudController');
+=======
+Route::resource('tarea', 'TareaController');
+Route::resource('comprobante_pago', 'comprobante_pagoController');
+Route::resource('comprobante_pago', 'comprobante_pagoController');
+Route::resource('tareas', 'tareasController');
+Route::resource('taxista', 'TaxistaController');
+Route::resource('taxista', 'TaxistaController');
+>>>>>>> remotes/origin/Alexis.Kumul
