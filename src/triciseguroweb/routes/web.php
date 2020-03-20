@@ -28,3 +28,4 @@ Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
 
+Route::resource('promocion_aplicada', 'Promocion_aplicadaController');
