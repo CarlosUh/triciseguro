@@ -24,8 +24,14 @@ Route::resource('queja', 'QuejaController');
 Route::resource('licencia', 'LicenciaController');
 
 
+
+
+
 Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
 
 Route::resource('placa', 'PlacaController');
+
+
+Route::resource('taxis', 'TaxisController');
