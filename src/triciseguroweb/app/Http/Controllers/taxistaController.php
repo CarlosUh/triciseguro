@@ -22,7 +22,7 @@ class TaxistaController extends Controller
 
         if (!empty($keyword)) {
             $taxista = Taxistum::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('pasajero', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
                 ->orWhere('quejas', 'LIKE', "%$keyword%")
                 ->orWhere('ruta', 'LIKE', "%$keyword%")
                 ->orWhere('mototaxi', 'LIKE', "%$keyword%")
@@ -54,7 +54,8 @@ class TaxistaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
+			'name' => 'required|min:5|max:20',
+			'persona' => 'required|min:5'
 		]);
         $requestData = $request->all();
         
@@ -102,7 +103,8 @@ class TaxistaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
+			'name' => 'required|min:5|max:20',
+			'persona' => 'required|min:5'
 		]);
         $requestData = $request->all();
         

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
+           
 
             <div class="col-md-9">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $taxistum->id }}</td>
                                     </tr>
-                                    <tr><th> Nombre </th><td> {{ $taxistum->nombre }} </td></tr><tr><th> Pasajero </th><td> {{ $taxistum->pasajero }} </td></tr><tr><th> Quejas </th><td> {{ $taxistum->quejas }} </td></tr>
+                                    <tr><th> Nombre </th><td> {{ $taxistum->nombre }} </td></tr><tr><th> Persona Id </th><td> {{ $taxistum->persona_id }} </td></tr><tr><th> Quejas </th><td> {{ $taxistum->quejas }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

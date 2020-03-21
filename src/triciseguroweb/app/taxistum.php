@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Licencium extends Model
+class Taxistum extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'licencias';
+    protected $table = 'taxistas';
 
     /**
     * The database primary key value.
@@ -25,7 +25,11 @@ class Licencium extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'apellido', 'curp', 'nacionalidad', 'fecha_expedicion', 'fecha_vencimiento', 'periodo'];
+    protected $fillable = ['nombre', 'persona_id', 'quejas', 'ruta', 'mototaxi'];
 
+    public function persona()
+    {
+        return $this->HasOne('App\Models\Persona');
+    }
     
 }

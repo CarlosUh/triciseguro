@@ -1,9 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('adminlte::page')
+@section('title', 'Laravel')
+@section('content_header')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
+          
 
             <div class="col-md-9">
                 <div class="card">
@@ -30,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Nombre</th><th>Pasajero</th><th>Quejas</th><th>Actions</th>
+                                        <th>#</th><th>Nombre</th><th>Persona Id</th><th>Quejas</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($taxista as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->nombre }}</td><td>{{ $item->pasajero }}</td><td>{{ $item->quejas }}</td>
+                                        <td>{{ $item->nombre }}</td><td>{{ $item->persona_id }}</td><td>{{ $item->quejas }}</td>
                                         <td>
                                             <a href="{{ url('/taxista/' . $item->id) }}" title="View Taxistum"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/taxista/' . $item->id . '/edit') }}" title="Edit Taxistum"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

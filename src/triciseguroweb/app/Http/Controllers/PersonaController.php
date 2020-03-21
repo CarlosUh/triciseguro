@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Queja;
+use App\Persona;
 use Illuminate\Http\Request;
 
-class QuejaController extends Controller
+class PersonaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,18 @@ class QuejaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $queja = Queja::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('taxista', 'LIKE', "%$keyword%")
-                ->orWhere('descripcion', 'LIKE', "%$keyword%")
+            $persona = Persona::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('apellido', 'LIKE', "%$keyword%")
+                ->orWhere('f_nacimiento', 'LIKE', "%$keyword%")
+                ->orWhere('genero', 'LIKE', "%$keyword%")
+                ->orWhere('direccion', 'LIKE', "%$keyword%")
+                ->orWhere('telefono', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $queja = Queja::latest()->paginate($perPage);
+            $persona = Persona::latest()->paginate($perPage);
         }
 
-        return view('queja.index', compact('queja'));
+        return view('personas.index', compact('persona'));
     }
 
     /**
@@ -39,7 +42,7 @@ class QuejaController extends Controller
      */
     public function create()
     {
-        return view('queja.create');
+        return view('personas.create');
     }
 
     /**
@@ -52,13 +55,19 @@ class QuejaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        Queja::create($requestData);
+        Persona::create($requestData);
 
-        return redirect('queja')->with('flash_message', 'Queja added!');
+        return redirect('personas')->with('flash_message', 'Persona added!');
     }
 
     /**
@@ -70,9 +79,9 @@ class QuejaController extends Controller
      */
     public function show($id)
     {
-        $queja = Queja::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('queja.show', compact('queja'));
+        return view('personas.show', compact('persona'));
     }
 
     /**
@@ -84,9 +93,9 @@ class QuejaController extends Controller
      */
     public function edit($id)
     {
-        $queja = Queja::findOrFail($id);
+        $persona = Persona::findOrFail($id);
 
-        return view('queja.edit', compact('queja'));
+        return view('personas.edit', compact('persona'));
     }
 
     /**
@@ -100,14 +109,20 @@ class QuejaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:5|max:20'
+			'nombre' => 'required|min:5|max:20',
+			'apellido' => 'required|min:5',
+			'f_nacimiento' => 'required|min:8',
+			'genero' => 'required|min:8',
+			'direccion' => 'required|min:8',
+			'telefono' => 'required|min:8',
+			
 		]);
         $requestData = $request->all();
         
-        $queja = Queja::findOrFail($id);
-        $queja->update($requestData);
+        $persona = Persona::findOrFail($id);
+        $persona->update($requestData);
 
-        return redirect('queja')->with('flash_message', 'Queja updated!');
+        return redirect('personas')->with('flash_message', 'Persona updated!');
     }
 
     /**
@@ -119,8 +134,8 @@ class QuejaController extends Controller
      */
     public function destroy($id)
     {
-        Queja::destroy($id);
+        Persona::destroy($id);
 
-        return redirect('queja')->with('flash_message', 'Queja deleted!');
+        return redirect('personas')->with('flash_message', 'Persona deleted!');
     }
 }

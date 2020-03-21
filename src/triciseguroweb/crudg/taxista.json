@@ -1,23 +1,30 @@
 {
-	"model_name":"Notificacion",
+	"model_name":"Taxista",
 	"soft_deletes":"yes",
 	"pk":"id",
 	"localize":"yes",
-	"table":"notificacion",
-    "fields": [		
+	"table":"taxistas",
+    "fields": [
         {
-            "name": "tipo",
+            "name": "nombre",
             "type": "string"
         },
         {
-            "name": "mensaje",
-            "type": "text"
+            "name": "persona_id",
+            "type":  "integer#unsigned"
+        },   
+        {
+            "name": "quejas",
+            "type": "string"
         },
         {
-            "name": "persona_id",
-            "type": "integer#unsigned"
+            "name": "ruta",
+            "type": "string"
+        },
+        {
+            "name": "mototaxi",
+            "type": "string"
         }
-      
     ],
     "foreign_keys": [
         {
@@ -26,19 +33,22 @@
             "on": "persona",
             "onDelete": "cascade"
         }
-       
     ],
     "relationships": [
         {
             "name": "persona",
-            "type": "belongsTo",
+            "type": "HasOne",
             "class": "App\\Models\\Persona"
         }
     ],
     "validations": [
         {
-            "field": "persona_id",
+            "field": "name",
             "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "persona",
+            "rules": "required|min:5"
         }
     ]
 	
