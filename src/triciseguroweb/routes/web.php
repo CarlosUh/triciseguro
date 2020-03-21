@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('tarea', 'TareaController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
+
+Route::resource('queja', 'QuejaController');
 Route::resource('tareas', 'tareasController');
 Route::resource('taxista', 'TaxistaController');
 Route::resource('taxista', 'TaxistaController');
