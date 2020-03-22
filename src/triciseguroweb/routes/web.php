@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('quejas', 'QuejasController');
 
 
 Route::resource('documentos', 'DocumentosController');
@@ -44,14 +43,17 @@ Route::resource('servicios', 'ServiciosController');
 Route::resource('solicitud', 'SolicitudController');
 
 Route::resource('tarea', 'TareaController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
+
+Route::resource('queja', 'QuejaController');
 Route::resource('tareas', 'tareasController');
-Route::resource('taxista', 'TaxistaController');
-Route::resource('taxista', 'TaxistaController');
+
+
+
 
 Route::resource('calificaciones', 'CalificacionesController');
 
 
 Route::resource('ruta', 'RutaController');
 
+
+Route::resource('taxista', 'TaxistaController');
