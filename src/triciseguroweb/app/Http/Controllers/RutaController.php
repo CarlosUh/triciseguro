@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\comprobante_pago;
+use App\Rutum;
 use Illuminate\Http\Request;
 
-class comprobante_pagoController extends Controller
+class RutaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,17 +21,14 @@ class comprobante_pagoController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $comprobante_pago = comprobante_pago::where('fecha', 'LIKE', "%$keyword%")
-                ->orWhere('hora', 'LIKE', "%$keyword%")
-                ->orWhere('cantidad', 'LIKE', "%$keyword%")
-                ->orWhere('descripcion', 'LIKE', "%$keyword%")
-                ->orWhere('formapago', 'LIKE', "%$keyword%")
+            $ruta = Rutum::where('orien', 'LIKE', "%$keyword%")
+                ->orWhere('destino', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $comprobante_pago = comprobante_pago::latest()->paginate($perPage);
+            $ruta = Rutum::latest()->paginate($perPage);
         }
 
-        return view('comprobante_pago.index', compact('comprobante_pago'));
+        return view('ruta.index', compact('ruta'));
     }
 
     /**
@@ -41,7 +38,7 @@ class comprobante_pagoController extends Controller
      */
     public function create()
     {
-        return view('comprobante_pago.create');
+        return view('ruta.create');
     }
 
     /**
@@ -53,14 +50,12 @@ class comprobante_pagoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-			'fecha' => 'required|min:5|max:20'
-		]);
+        
         $requestData = $request->all();
         
-        comprobante_pago::create($requestData);
+        Rutum::create($requestData);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago added!');
+        return redirect('ruta')->with('flash_message', 'Rutum added!');
     }
 
     /**
@@ -72,9 +67,9 @@ class comprobante_pagoController extends Controller
      */
     public function show($id)
     {
-        $comprobante_pago = comprobante_pago::findOrFail($id);
+        $rutum = Rutum::findOrFail($id);
 
-        return view('comprobante_pago.show', compact('comprobante_pago'));
+        return view('ruta.show', compact('rutum'));
     }
 
     /**
@@ -86,9 +81,9 @@ class comprobante_pagoController extends Controller
      */
     public function edit($id)
     {
-        $comprobante_pago = comprobante_pago::findOrFail($id);
+        $rutum = Rutum::findOrFail($id);
 
-        return view('comprobante_pago.edit', compact('comprobante_pago'));
+        return view('ruta.edit', compact('rutum'));
     }
 
     /**
@@ -101,15 +96,13 @@ class comprobante_pagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-			'fecha' => 'required|min:5|max:20'
-		]);
+        
         $requestData = $request->all();
         
-        $comprobante_pago = comprobante_pago::findOrFail($id);
-        $comprobante_pago->update($requestData);
+        $rutum = Rutum::findOrFail($id);
+        $rutum->update($requestData);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago updated!');
+        return redirect('ruta')->with('flash_message', 'Rutum updated!');
     }
 
     /**
@@ -121,8 +114,8 @@ class comprobante_pagoController extends Controller
      */
     public function destroy($id)
     {
-        comprobante_pago::destroy($id);
+        Rutum::destroy($id);
 
-        return redirect('comprobante_pago')->with('flash_message', 'comprobante_pago deleted!');
+        return redirect('ruta')->with('flash_message', 'Rutum deleted!');
     }
 }

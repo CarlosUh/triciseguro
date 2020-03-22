@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +12,15 @@
 |
 */
 
+  
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::resource('quejas', 'QuejasController');
+
 
 
 
@@ -28,9 +32,6 @@ Route::resource('queja', 'QuejaController');
 Route::resource('licencia', 'LicenciaController');
 
 
-
-
-
 Route::resource('contactos', 'ContactosController');
 Route::resource('notificacion', 'NotificacionController');
 
@@ -38,6 +39,9 @@ Route::resource('solicitud', 'SolicitudController');
 Route::resource('servicios', 'ServiciosController');
 Route::resource('promocion', 'PromocionController');
 
+
+
+Route::resource('viajes', 'ViajesController');
 
 
 
@@ -50,9 +54,20 @@ Route::resource('viajes', 'ViajesController');
 Route::resource('solicitud', 'SolicitudController');
 
 Route::resource('tarea', 'TareaController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
-Route::resource('comprobante_pago', 'comprobante_pagoController');
+
+Route::resource('queja', 'QuejaController');
 Route::resource('tareas', 'tareasController');
+
+
+
+
+Route::resource('calificaciones', 'CalificacionesController');
+
+
+Route::resource('ruta', 'RutaController');
+
+
 Route::resource('taxista', 'TaxistaController');
+
 Route::resource('taxista', 'TaxistaController');
 

@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class comprobante_pago extends Model
+class Rutum extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'comprobante_pagos';
+    protected $table = 'rutas';
 
     /**
     * The database primary key value.
@@ -25,7 +25,11 @@ class comprobante_pago extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha', 'hora', 'cantidad', 'descripcion', 'formapago'];
+    protected $fillable = ['orien', 'destino'];
 
+    public function ubicaciones()
+    {
+        return $this->hasMany('App\Models\Ubicacion');
+    }
     
 }

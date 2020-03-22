@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Calificacion;
+use App\Calificacione;
 use Illuminate\Http\Request;
 
-class CalificacionController extends Controller
+class CalificacionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,16 @@ class CalificacionController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $calificacion = Calificacion::where('taxista', 'LIKE', "%$keyword%")
+            $calificaciones = Calificacione::where('taxista', 'LIKE', "%$keyword%")
                 ->orWhere('servicio', 'LIKE', "%$keyword%")
                 ->orWhere('calificacion', 'LIKE', "%$keyword%")
+                ->orWhere('taxista_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $calificacion = Calificacion::latest()->paginate($perPage);
+            $calificaciones = Calificacione::latest()->paginate($perPage);
         }
 
-        return view('calificacion.index', compact('calificacion'));
+        return view('calificaciones.index', compact('calificaciones'));
     }
 
     /**
@@ -39,7 +40,7 @@ class CalificacionController extends Controller
      */
     public function create()
     {
-        return view('calificacion.create');
+        return view('calificaciones.create');
     }
 
     /**
@@ -54,9 +55,9 @@ class CalificacionController extends Controller
         
         $requestData = $request->all();
         
-        Calificacion::create($requestData);
+        Calificacione::create($requestData);
 
-        return redirect('calificacion')->with('flash_message', 'Calificacion added!');
+        return redirect('calificaciones')->with('flash_message', 'Calificacione added!');
     }
 
     /**
@@ -68,9 +69,9 @@ class CalificacionController extends Controller
      */
     public function show($id)
     {
-        $calificacion = Calificacion::findOrFail($id);
+        $calificacione = Calificacione::findOrFail($id);
 
-        return view('calificacion.show', compact('calificacion'));
+        return view('calificaciones.show', compact('calificacione'));
     }
 
     /**
@@ -82,9 +83,9 @@ class CalificacionController extends Controller
      */
     public function edit($id)
     {
-        $calificacion = Calificacion::findOrFail($id);
+        $calificacione = Calificacione::findOrFail($id);
 
-        return view('calificacion.edit', compact('calificacion'));
+        return view('calificaciones.edit', compact('calificacione'));
     }
 
     /**
@@ -100,10 +101,10 @@ class CalificacionController extends Controller
         
         $requestData = $request->all();
         
-        $calificacion = Calificacion::findOrFail($id);
-        $calificacion->update($requestData);
+        $calificacione = Calificacione::findOrFail($id);
+        $calificacione->update($requestData);
 
-        return redirect('calificacion')->with('flash_message', 'Calificacion updated!');
+        return redirect('calificaciones')->with('flash_message', 'Calificacione updated!');
     }
 
     /**
@@ -115,8 +116,8 @@ class CalificacionController extends Controller
      */
     public function destroy($id)
     {
-        Calificacion::destroy($id);
+        Calificacione::destroy($id);
 
-        return redirect('calificacion')->with('flash_message', 'Calificacion deleted!');
+        return redirect('calificaciones')->with('flash_message', 'Calificacione deleted!');
     }
 }
