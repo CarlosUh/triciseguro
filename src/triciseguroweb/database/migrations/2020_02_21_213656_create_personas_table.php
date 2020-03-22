@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePromocionsTable extends Migration
+class CreatePersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,16 @@ class CreatePromocionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('promocions', function (Blueprint $table) {
+        Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('nombre')->nullable();
-            $table->dateTime('fecha')->nullable();
-            $table->text('tipo_promocion')->nullable();
-            $table->foreign('solicitud')->references('id')->on('solicitud')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('apellido')->nullable();
+            $table->string('f_nacimiento')->nullable();
+            $table->string('genero')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+           
             });
     }
 
@@ -29,6 +32,6 @@ class CreatePromocionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('promocions');
+        Schema::drop('personas');
     }
 }

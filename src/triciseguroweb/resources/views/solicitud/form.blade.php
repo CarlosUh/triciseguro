@@ -13,10 +13,10 @@
     <input class="form-control" name="calificacion_id" type="number" id="calificacion_id" value="{{ isset($solicitud->calificacion_id) ? $solicitud->calificacion_id : ''}}" required>
     {!! $errors->first('calificacion_id', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('taxita_id') ? 'has-error' : ''}}">
-    <label for="taxita_id" class="control-label">{{ 'Taxita Id' }}</label>
-    <input class="form-control" name="taxita_id" type="number" id="taxita_id" value="{{ isset($solicitud->taxita_id) ? $solicitud->taxita_id : ''}}" >
-    {!! $errors->first('taxita_id', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('taxista_id') ? 'has-error' : ''}}">
+    <label for="taxista_id" class="control-label">{{ 'Taxista Id' }}</label>
+    <input class="form-control" name="taxista_id" type="number" id="taxista_id" value="{{ isset($solicitud->taxista_id) ? $solicitud->taxista_id : ''}}" required>
+    {!! $errors->first('taxista_id', '<p class="help-block">:message</p>') !!}
 </div>
 
 

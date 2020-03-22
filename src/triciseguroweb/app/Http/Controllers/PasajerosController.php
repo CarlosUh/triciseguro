@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Licencium;
+use App\Pasajero;
 use Illuminate\Http\Request;
 
-class LicenciaController extends Controller
+class PasajerosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,19 +21,15 @@ class LicenciaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $licencia = Licencium::where('nombre', 'LIKE', "%$keyword%")
-                ->orWhere('apellido', 'LIKE', "%$keyword%")
-                ->orWhere('curp', 'LIKE', "%$keyword%")
-                ->orWhere('nacionalidad', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_expedicion', 'LIKE', "%$keyword%")
-                ->orWhere('fecha_vencimiento', 'LIKE', "%$keyword%")
-                ->orWhere('periodo', 'LIKE', "%$keyword%")
+            $pasajeros = Pasajero::where('nombre', 'LIKE', "%$keyword%")
+                ->orWhere('persona_id', 'LIKE', "%$keyword%")
+                ->orWhere('promocion_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $licencia = Licencium::latest()->paginate($perPage);
+            $pasajeros = Pasajero::latest()->paginate($perPage);
         }
 
-        return view('licencia.index', compact('licencia'));
+        return view('pasajeros.index', compact('pasajeros'));
     }
 
     /**
@@ -43,7 +39,7 @@ class LicenciaController extends Controller
      */
     public function create()
     {
-        return view('licencia.create');
+        return view('pasajeros.create');
     }
 
     /**
@@ -56,15 +52,13 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        Licencium::create($requestData);
+        Pasajero::create($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium added!');
+        return redirect('pasajeros')->with('flash_message', 'Pasajero added!');
     }
 
     /**
@@ -76,9 +70,9 @@ class LicenciaController extends Controller
      */
     public function show($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $pasajero = Pasajero::findOrFail($id);
 
-        return view('licencia.show', compact('licencium'));
+        return view('pasajeros.show', compact('pasajero'));
     }
 
     /**
@@ -90,9 +84,9 @@ class LicenciaController extends Controller
      */
     public function edit($id)
     {
-        $licencium = Licencium::findOrFail($id);
+        $pasajero = Pasajero::findOrFail($id);
 
-        return view('licencia.edit', compact('licencium'));
+        return view('pasajeros.edit', compact('pasajero'));
     }
 
     /**
@@ -106,16 +100,14 @@ class LicenciaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'nombre' => 'required|min:2|max:40',
-			'apellido' => 'required|min:2|max:40',
-			'curp' => 'required:18'
+			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
         
-        $licencium = Licencium::findOrFail($id);
-        $licencium->update($requestData);
+        $pasajero = Pasajero::findOrFail($id);
+        $pasajero->update($requestData);
 
-        return redirect('licencia')->with('flash_message', 'Licencium updated!');
+        return redirect('pasajeros')->with('flash_message', 'Pasajero updated!');
     }
 
     /**
@@ -127,8 +119,8 @@ class LicenciaController extends Controller
      */
     public function destroy($id)
     {
-        Licencium::destroy($id);
+        Pasajero::destroy($id);
 
-        return redirect('licencia')->with('flash_message', 'Licencium deleted!');
+        return redirect('pasajeros')->with('flash_message', 'Pasajero deleted!');
     }
 }

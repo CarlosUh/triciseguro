@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Documento;
+use App\Calificacion;
 use Illuminate\Http\Request;
 
-class DocumentosController extends Controller
+class CalificacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,16 +21,15 @@ class DocumentosController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $documentos = Documento::where('credencial_id', 'LIKE', "%$keyword%")
-                ->orWhere('cuota_id', 'LIKE', "%$keyword%")
-                ->orWhere('licencia_id', 'LIKE', "%$keyword%")
-                ->orWhere('comprobante_pago_id', 'LIKE', "%$keyword%")
+            $calificacion = Calificacion::where('taxista', 'LIKE', "%$keyword%")
+                ->orWhere('servicio', 'LIKE', "%$keyword%")
+                ->orWhere('calificacion', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $documentos = Documento::latest()->paginate($perPage);
+            $calificacion = Calificacion::latest()->paginate($perPage);
         }
 
-        return view('documentos.index', compact('documentos'));
+        return view('calificacion.index', compact('calificacion'));
     }
 
     /**
@@ -40,7 +39,7 @@ class DocumentosController extends Controller
      */
     public function create()
     {
-        return view('documentos.create');
+        return view('calificacion.create');
     }
 
     /**
@@ -52,17 +51,12 @@ class DocumentosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
-		]);
+        
         $requestData = $request->all();
         
-        Documento::create($requestData);
+        Calificacion::create($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento added!');
+        return redirect('calificacion')->with('flash_message', 'Calificacion added!');
     }
 
     /**
@@ -74,9 +68,9 @@ class DocumentosController extends Controller
      */
     public function show($id)
     {
-        $documento = Documento::findOrFail($id);
+        $calificacion = Calificacion::findOrFail($id);
 
-        return view('documentos.show', compact('documento'));
+        return view('calificacion.show', compact('calificacion'));
     }
 
     /**
@@ -88,9 +82,9 @@ class DocumentosController extends Controller
      */
     public function edit($id)
     {
-        $documento = Documento::findOrFail($id);
+        $calificacion = Calificacion::findOrFail($id);
 
-        return view('documentos.edit', compact('documento'));
+        return view('calificacion.edit', compact('calificacion'));
     }
 
     /**
@@ -103,18 +97,13 @@ class DocumentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-			'credencial_id' => 'required|min:5|max:20',
-			'cuota_id' => 'required|min:5',
-			'comprobante_pago_id' => 'required|min:5',
-			'licencia_id' => 'required|min:5'
-		]);
+        
         $requestData = $request->all();
         
-        $documento = Documento::findOrFail($id);
-        $documento->update($requestData);
+        $calificacion = Calificacion::findOrFail($id);
+        $calificacion->update($requestData);
 
-        return redirect('documentos')->with('flash_message', 'Documento updated!');
+        return redirect('calificacion')->with('flash_message', 'Calificacion updated!');
     }
 
     /**
@@ -126,8 +115,8 @@ class DocumentosController extends Controller
      */
     public function destroy($id)
     {
-        Documento::destroy($id);
+        Calificacion::destroy($id);
 
-        return redirect('documentos')->with('flash_message', 'Documento deleted!');
+        return redirect('calificacion')->with('flash_message', 'Calificacion deleted!');
     }
 }

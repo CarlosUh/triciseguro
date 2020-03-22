@@ -7,7 +7,11 @@
 
             <div class="col-md-9">
                 <div class="card">
+<<<<<<< HEAD:src/triciseguroweb/resources/views/servicios/edit.blade.php
                     <div class="card-header">Edit Servicio #{{ $servicio->id }}</div>
+=======
+                    <div class="card-header">Edit Taxistum #{{ $taxistum->id }}</div>
+>>>>>>> remotes/origin/Alexis.Kumul:src/triciseguroweb/resources/views/taxista/edit.blade.php
                     <div class="card-body">
                         <a href="{{ url('/servicios') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />

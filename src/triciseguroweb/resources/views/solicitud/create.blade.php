@@ -7,7 +7,11 @@
 
             <div class="col-md-9">
                 <div class="card">
+<<<<<<< HEAD:src/triciseguroweb/resources/views/solicitud/create.blade.php
                     <div class="card-header">Create New Solicitud</div>
+=======
+                    <div class="card-header">Create New Taxistum</div>
+>>>>>>> remotes/origin/Alexis.Kumul:src/triciseguroweb/resources/views/taxista/create.blade.php
                     <div class="card-body">
                         <a href="{{ url('/solicitud') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
