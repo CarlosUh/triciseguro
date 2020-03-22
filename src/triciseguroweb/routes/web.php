@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('tarea', 'TareaController');
 
-Route::resource('queja', 'QuejaController');
-Route::resource('tareas', 'tareasController');
-Route::resource('taxista', 'TaxistaController');
-Route::resource('taxista', 'TaxistaController');
+Route::resource('taxista', 'taxistaController');
+Route::resource('documentos', 'DocumentoController');
