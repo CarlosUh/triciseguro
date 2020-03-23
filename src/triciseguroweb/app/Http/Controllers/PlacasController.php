@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Placa;
 use Illuminate\Http\Request;
 
-class PlacaController extends Controller
+class PlacasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +21,16 @@ class PlacaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $placa = Placa::where('nombre', 'LIKE', "%$keyword%")
+            $placas = Placa::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('color', 'LIKE', "%$keyword%")
                 ->orWhere('tamanio', 'LIKE', "%$keyword%")
+                ->orWhere('taxi_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $placa = Placa::latest()->paginate($perPage);
+            $placas = Placa::latest()->paginate($perPage);
         }
 
-        return view('placa.index', compact('placa'));
+        return view('placas.index', compact('placas'));
     }
 
     /**
@@ -39,7 +40,7 @@ class PlacaController extends Controller
      */
     public function create()
     {
-        return view('placa.create');
+        return view('placas.create');
     }
 
     /**
@@ -53,14 +54,15 @@ class PlacaController extends Controller
     {
         $this->validate($request, [
 			'nombre' => 'required|min:5|max:20',
-			'color' => 'requiered:4',
-			'tamanio' => 'requiered:4'
+			'color' => 'required|min:4|max:20',
+			'tamanio' => 'required|min:5|max:20',
+			'taxi_id' => 'required|min:1'
 		]);
         $requestData = $request->all();
         
         Placa::create($requestData);
 
-        return redirect('placa')->with('flash_message', 'Placa added!');
+        return redirect('placas')->with('flash_message', 'Placa added!');
     }
 
     /**
@@ -74,7 +76,7 @@ class PlacaController extends Controller
     {
         $placa = Placa::findOrFail($id);
 
-        return view('placa.show', compact('placa'));
+        return view('placas.show', compact('placa'));
     }
 
     /**
@@ -88,7 +90,7 @@ class PlacaController extends Controller
     {
         $placa = Placa::findOrFail($id);
 
-        return view('placa.edit', compact('placa'));
+        return view('placas.edit', compact('placa'));
     }
 
     /**
@@ -103,15 +105,16 @@ class PlacaController extends Controller
     {
         $this->validate($request, [
 			'nombre' => 'required|min:5|max:20',
-			'color' => 'requiered:4',
-			'tamanio' => 'requiered:4'
+			'color' => 'required|min:4|max:20',
+			'tamanio' => 'required|min:5|max:20',
+			'taxi_id' => 'required|min:1'
 		]);
         $requestData = $request->all();
         
         $placa = Placa::findOrFail($id);
         $placa->update($requestData);
 
-        return redirect('placa')->with('flash_message', 'Placa updated!');
+        return redirect('placas')->with('flash_message', 'Placa updated!');
     }
 
     /**
@@ -125,6 +128,6 @@ class PlacaController extends Controller
     {
         Placa::destroy($id);
 
-        return redirect('placa')->with('flash_message', 'Placa deleted!');
+        return redirect('placas')->with('flash_message', 'Placa deleted!');
     }
 }

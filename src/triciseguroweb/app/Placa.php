@@ -25,7 +25,11 @@ class Placa extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'color', 'tamanio'];
+    protected $fillable = ['nombre', 'color', 'tamanio', 'taxi_id'];
 
+    public function taxi()
+    {
+        return $this->belongsTo('App\Models\Taxi');
+    }
     
 }

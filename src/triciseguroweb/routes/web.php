@@ -31,7 +31,5 @@ Route::resource('contactos', 'ContactosController');
 
 Route::resource('notificacion', 'NotificacionController');
 
-Route::resource('placa', 'PlacaController');
-
-
 Route::resource('taxis', 'TaxisController');
+Route::resource('placas', 'PlacasController');
