@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('licencia', 'LicenciaController');
-Route::resource('licencia', 'LicenciaController');
+Route::resource('taxista', 'taxistaController');
+Route::resorce('documentos', 'DocumentoController');

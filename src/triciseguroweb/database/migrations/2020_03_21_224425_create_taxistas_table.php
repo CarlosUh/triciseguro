@@ -16,10 +16,11 @@ class CreateTaxistasTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('nombre')->nullable();
-            $table->string('pasajero')->nullable();
+            $table->integer('persona_id')->unsigned();
             $table->string('quejas')->nullable();
             $table->string('ruta')->nullable();
             $table->string('mototaxi')->nullable();
+            $table->foreign('persona_id')->references('id')->on('persona')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 
