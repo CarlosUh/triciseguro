@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('documentos', 'DocumentoController');
 Route::resource('personas', 'PersonaController');
 Route::resource('comprobante-pago', 'ComprobantePagoController');
 Route::resource('taxista', 'taxistaController');
