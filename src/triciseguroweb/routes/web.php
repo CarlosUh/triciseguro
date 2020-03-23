@@ -24,3 +24,9 @@ Route::resource('licencia', 'LicenciaController');
 Route::resource('contactos', 'ContactosController');
 Route::resource('notificacion', 'NotificacionController');
 
+
+Route::resource('promocion', 'PromocionController');
+
+
+
+Route::resource('pasajeros', 'PasajerosController');

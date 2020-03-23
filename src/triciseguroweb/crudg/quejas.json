@@ -1,5 +1,5 @@
 {
-    "model_name": "queja",
+    "model_name": "Quejas",
     "soft_deletes": "yes",
     "pk": "id",
     "localize": "yes",
