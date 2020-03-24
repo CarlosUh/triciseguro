@@ -30,3 +30,4 @@ Route::resource('promocion', 'PromocionController');
 
 
 Route::resource('pasajeros', 'PasajerosController');
+Route::resource('contactos', 'ContactosController');
