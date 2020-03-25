@@ -1,0 +1,54 @@
+{
+	"model_name":"Ubicacion",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"ubicaciones",
+    "fields": [
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+
+            "name": "latitud",
+            "type": "decimal"
+
+        },
+        {
+
+            "name": "longitud",
+            "type": "decimal"
+
+        },
+        {
+            "name": "description",
+            "type": "text"
+        },
+
+        {
+            "name": "persona_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+
+        {
+            "column": "persona_id",
+            "references": "id",
+            "on": "personas",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+
+        {
+            "name": "persona",
+            "type": "belongsTo",
+            "class": "App\\Models\\Persona"
+        }
+
+
+    ]
+
+}
