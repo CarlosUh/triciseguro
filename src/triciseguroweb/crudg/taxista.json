@@ -10,6 +10,7 @@
             "type": "string"
         },
         {
+            
             "name": "persona_id",
             "type":  "integer#unsigned"
         },   
