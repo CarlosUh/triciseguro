@@ -25,4 +25,4 @@ Route::resource('notificacion', 'NotificacionController');
 Route::resource('promocion', 'PromocionController');
 
 Route::resource('pasajeros', 'pasajerosController');
-Route::resource('contactos', 'ContactosController');
+Route::resource('contactos', 'ContactosController');  
