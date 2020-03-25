@@ -16,7 +16,7 @@ class CalificacionSeeder extends Seeder
             'servicio' => 'hg',
             'calificacion' => '19',
 
-            'taxista_id' => '1' ,SS
+            'taxista_id' => '1' ,
 
         ]);
     }
