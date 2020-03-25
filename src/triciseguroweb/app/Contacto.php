@@ -25,7 +25,7 @@ class Contacto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'numero'];
+    protected $fillable = ['nombre', 'numero', 'pasajero_id'];
 
     public function pasajero()
     {

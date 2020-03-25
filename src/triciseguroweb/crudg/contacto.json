@@ -13,6 +13,10 @@
         {
             "name": "numero",
             "type": "text"
+        },
+        {
+            "name": "pasajero_id",
+            "type": "text"
         }
     ],
     "foreign_keys": [

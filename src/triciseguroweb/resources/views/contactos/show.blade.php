@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $contacto->id }}</td>
                                     </tr>
-                                    <tr><th> Nombre </th><td> {{ $contacto->nombre }} </td></tr><tr><th> Numero </th><td> {{ $contacto->numero }} </td></tr>
+                                    <tr><th> Nombre </th><td> {{ $contacto->nombre }} </td></tr><tr><th> Numero </th><td> {{ $contacto->numero }} </td></tr><tr><th> Pasajero Id </th><td> {{ $contacto->pasajero_id }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

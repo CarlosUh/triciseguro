@@ -23,6 +23,7 @@ class ContactosController extends Controller
         if (!empty($keyword)) {
             $contactos = Contacto::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('numero', 'LIKE', "%$keyword%")
+                ->orWhere('pasajero_id', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $contactos = Contacto::latest()->paginate($perPage);
