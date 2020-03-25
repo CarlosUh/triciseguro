@@ -1,23 +1,17 @@
 <?php
 
-use Illuminate\Database\seeder;
+use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends seeder{
-
+class DatabaseSeeder extends Seeder
+{
     /**
-     * Seed the aplication's database
+     * Seed the application's database.
+     *
      * @return void
-     * 
-     * 
      */
     public function run()
     {
-        $this->call('PromocionSeeder');
-        $this->call('SolicitudSeeder');
-        $this->call('Promocion_aplicadaSeeder');
+        $this->call('PersonaSeeder');
+        $this->call('UbicacionSeeder');
     }
 }
-
-
-
-?>
