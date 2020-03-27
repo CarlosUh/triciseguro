@@ -32,3 +32,5 @@ Route::resource('promocion_aplicada', 'Promocion_aplicadaController');
 Route::resource('persona', 'PersonaController');
 Route::resource('ubicacion', 'UbicacionController');
 Route::resource('taxista', 'TaxistaController');
+Route::resource('pasajero', 'PasajeroController');
+Route::resource('promocion', 'PromocionController');

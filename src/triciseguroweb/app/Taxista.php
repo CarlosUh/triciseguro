@@ -29,11 +29,11 @@ class Taxista extends Model
 
     public function documentos()
     {
-        return $this->HasMany('App\Models\Documento');
+        return $this->HasMany('App\Documento');
     }
     public function quejas()
     {
-        return $this->HasMany('App\Models\Queja');
+        return $this->HasMany('App\Queja');
     }
     public function mensajes()
     {
@@ -51,4 +51,5 @@ class Taxista extends Model
     {
         return $this->morphOne('App\Persona', 'personable');
     }
+
 }

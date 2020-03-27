@@ -29,7 +29,7 @@ class Persona extends Model
 
     public function ubicaciones()
     {
-        return $this->hasMany('App\Models\Ubicacion');
+        return $this->hasMany('App\Ubicacion');
     }
 
     public function personable()

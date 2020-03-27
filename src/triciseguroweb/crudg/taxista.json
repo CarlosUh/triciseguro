@@ -14,27 +14,27 @@
         {
             "name": "documentos",
             "type": "HasMany",
-            "class": "App\\Models\\Documento"
+            "class": "App\\Documento"
         },
 				{
             "name": "quejas",
             "type": "HasMany",
-            "class": "App\\Models\\Queja"
+            "class": "App\\Queja"
         },
 				{
             "name": "mensajes",
             "type": "HasMany",
-            "class": "App\\Models\\Mensaje"
+            "class": "App\\Mensaje"
         },
 				{
             "name": "calificaciones",
             "type": "HasMany",
-            "class": "App\\Models\\Calificacion"
+            "class": "App\\Calificacion"
         },
 				{
             "name": "mototaxis",
             "type": "HasMany",
-            "class": "App\\Models\\Mototaxi"
+            "class": "App\\Mototaxi"
         }
     ],
     "validations": [
