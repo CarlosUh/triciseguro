@@ -8,7 +8,6 @@ $factory->define(Ubicacion::class, function (Faker $faker) {
            'nombre'=> $faker->firstName,
         	'latitud'=> $faker->latitude,
         	'longitud'=>$faker->longitude,
-        	'persona_id'=> $faker->randomElement(['1', '2']),
         	'description'=>$faker->address,
     ];
 });

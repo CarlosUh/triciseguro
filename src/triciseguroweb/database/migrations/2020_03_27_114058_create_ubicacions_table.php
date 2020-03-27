@@ -19,7 +19,7 @@ class CreateUbicacionsTable extends Migration
             $table->decimal('latitud')->nullable();
             $table->decimal('longitud')->nullable();
             $table->text('description')->nullable();
-            $table->integer('persona_id')->unsigned();
+            $table->integer('persona_id')->nullable()->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade')->onUpdate('cascade');
             });
     }
@@ -31,6 +31,6 @@ class CreateUbicacionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ubicacions');
+        Schema::drop('ubicaciones');
     }
 }

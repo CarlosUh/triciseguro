@@ -1,0 +1,86 @@
+{
+	"model_name":"Solicitud",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"solicitudes",
+    "fields": [
+        {
+            "name": "pasajero_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name":"taxista_id",
+            "type":"integer#unsigned"
+        },
+        {
+            "name":"ruta_id",
+            "type":"integer#unsigned"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "pasajero_id",
+            "references": "id",
+            "on": "pasajeros",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "taxista_id",
+            "references": "id",
+            "on": "taxistas",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "ruta_id",
+            "references": "id",
+            "on": "rutas",
+            "onDelete": "cascade"
+        }
+
+    ],
+
+    "relationships": [
+        {
+            "name": "ruta",
+            "type": "belongsTo",
+            "class": "App\\Ruta"
+        },
+        {
+            "name": "calificacion",
+            "type": "hasOne",
+            "class": "App\\Calificacion"
+        },
+        {
+            "name": "mensajes",
+            "type": "hasMany",
+            "class": "App\\Mensaje"
+        },
+        {
+            "name": "taxista",
+            "type": "belongsTo",
+            "class": "App\\Taxista"
+        },
+        {
+            "name": "pasajero",
+            "type": "belongsTo",
+            "class": "App\\Pasajero"
+        }
+    ],
+
+    "validations": [
+        {
+            "field": "pasajero_id",
+            "rules": "required"
+        },
+				{
+            "field": "ruta_id",
+            "rules": "required"
+        },
+        {
+            "field": "taxista_id",
+            "rules": "required"
+        }
+    ]
+}

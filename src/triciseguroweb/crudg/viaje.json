@@ -1,0 +1,30 @@
+{
+    "model_name":"Viaje",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"viajes",
+    "fields": [
+        {
+            "name": "comentario",
+            "type": "string"
+        }
+    ],
+    "foreign_keys": [
+
+    ],
+    "relationships": [
+        {
+            "name": "alertas",
+            "type": "hasMany",
+            "class": "App\\Alerta"
+        }
+
+    ],
+    "validations": [
+        {
+            "field": "comentario",
+            "rules": "required|min:8"
+        }
+    ]
+}

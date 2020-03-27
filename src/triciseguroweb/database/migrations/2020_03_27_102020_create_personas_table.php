@@ -21,6 +21,8 @@ class CreatePersonasTable extends Migration
             $table->string('genero')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
+            $table->integer('personable_id')->unsigned();
+            $table->string('personable_type');
             });
     }
 

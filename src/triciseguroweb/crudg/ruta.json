@@ -1,0 +1,60 @@
+{
+	"model_name":"Ruta",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"rutas",
+    "fields": [
+			{
+					"name": "solicitud_id",
+					"type": "integer#unsigned"
+			},
+			{
+          "name": "origen_id",
+          "type": "integer#unsigned"
+      },
+      {
+          "name": "destino_id",
+          "type": "integer#unsigned"
+      }
+    ],
+    "foreign_keys": [
+				{
+						"column": "solicitud_id",
+						"references": "id",
+						"on": "solicitudes",
+						"onDelete": "cascade"
+				},
+				{
+            "column": "origen_id",
+            "references": "id",
+            "on": "ubicaciones",
+            "onDelete": "cascade"
+        },
+				{
+            "column": "destino_id",
+            "references": "id",
+            "on": "ubicaciones",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+				{
+						"name": "solicitud",
+						"type": "belongsTo",
+						"class": "App\\Solicitud"
+				},
+				{
+            "name": "origen",
+            "type": "belongsTo",
+            "class": "App\\Ubicacion"
+        },
+				{
+            "name": "destino",
+            "type": "belongsTo",
+            "class": "App\\Ubicacion"
+        }
+
+    ]
+
+}

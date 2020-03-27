@@ -1,0 +1,41 @@
+{
+    "model_name":"Pasajero",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"pasajeros",
+    "fields": [
+        {
+            "name": "promocion_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+         {
+            "column": "promocion_id",
+            "references": "id",
+            "on": "promociones",
+            "onDelete": "cascade"
+        }
+    ],
+
+    "relationships": [
+        {
+            "name": "contactos",
+            "type": "hasMany",
+            "class": "App\\Contacto"
+        },
+        {
+            "name": "promocion",
+            "type": "hasOne",
+            "class": "App\\Promocion"
+        },
+        {
+              "name": "quejas",
+              "type": "HasMany",
+              "class": "App\\Queja"
+          }
+    ],
+    "validations": [
+    ]
+}

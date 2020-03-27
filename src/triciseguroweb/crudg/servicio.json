@@ -1,0 +1,19 @@
+{
+	"model_name":"Servicio",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"servicios",
+    "fields": [
+        {
+            "name": "descripcion",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "descripcion",
+            "rules": "required|min:8"
+        }
+    ]
+}
