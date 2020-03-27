@@ -1,0 +1,43 @@
+{
+	"model_name":"Taxista",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"taxistas",
+    "fields": [
+        {
+            "name": "none",
+            "type":  "string"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "documentos",
+            "type": "HasMany",
+            "class": "App\\Models\\Documento"
+        },
+				{
+            "name": "quejas",
+            "type": "HasMany",
+            "class": "App\\Models\\Queja"
+        },
+				{
+            "name": "mensajes",
+            "type": "HasMany",
+            "class": "App\\Models\\Mensaje"
+        },
+				{
+            "name": "calificaciones",
+            "type": "HasMany",
+            "class": "App\\Models\\Calificacion"
+        },
+				{
+            "name": "mototaxis",
+            "type": "HasMany",
+            "class": "App\\Models\\Mototaxi"
+        }
+    ],
+    "validations": [
+    ]
+
+}

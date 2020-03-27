@@ -31,13 +31,10 @@ class Persona extends Model
     {
         return $this->hasMany('App\Models\Ubicacion');
     }
-    public function pasajero()
+
+    public function personable()
     {
-        return $this->hasOne('App\Models\Pasajero');
+        return $this->morphTo();
     }
-    public function taxista()
-    {
-        return $this->hasOne('App\Models\Taxista');
-    }
-    
+
 }

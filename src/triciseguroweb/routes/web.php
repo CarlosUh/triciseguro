@@ -31,3 +31,4 @@ Route::resource('notificacion', 'NotificacionController');
 Route::resource('promocion_aplicada', 'Promocion_aplicadaController');
 Route::resource('persona', 'PersonaController');
 Route::resource('ubicacion', 'UbicacionController');
+Route::resource('taxista', 'TaxistaController');
