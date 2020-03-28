@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\taxistum;
+use App\Taxista;
 use Illuminate\Http\Request;
 
-class taxistaController extends Controller
+class TaxistaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +21,14 @@ class taxistaController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $taxista = taxistum::where('nombre', 'LIKE', "%$keyword%")
+            $taxista = Taxista::where('nombre', 'LIKE', "%$keyword%")
                 ->orWhere('pasajero', 'LIKE', "%$keyword%")
                 ->orWhere('quejas', 'LIKE', "%$keyword%")
                 ->orWhere('ruta', 'LIKE', "%$keyword%")
                 ->orWhere('mototaxi', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $taxista = taxistum::latest()->paginate($perPage);
+            $taxista = Taxista::latest()->paginate($perPage);
         }
 
         return view('taxista.index', compact('taxista'));
@@ -57,10 +57,10 @@ class taxistaController extends Controller
 			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
-        
-        taxistum::create($requestData);
 
-        return redirect('taxista')->with('flash_message', 'taxistum added!');
+        Taxista::create($requestData);
+
+        return redirect('taxista')->with('flash_message', 'Taxista added!');
     }
 
     /**
@@ -72,9 +72,9 @@ class taxistaController extends Controller
      */
     public function show($id)
     {
-        $taxistum = taxistum::findOrFail($id);
+        $Taxista = Taxista::findOrFail($id);
 
-        return view('taxista.show', compact('taxistum'));
+        return view('taxista.show', compact('Taxista'));
     }
 
     /**
@@ -86,9 +86,9 @@ class taxistaController extends Controller
      */
     public function edit($id)
     {
-        $taxistum = taxistum::findOrFail($id);
+        $Taxista = Taxista::findOrFail($id);
 
-        return view('taxista.edit', compact('taxistum'));
+        return view('taxista.edit', compact('Taxista'));
     }
 
     /**
@@ -105,11 +105,11 @@ class taxistaController extends Controller
 			'nombre' => 'required|min:5|max:20'
 		]);
         $requestData = $request->all();
-        
-        $taxistum = taxistum::findOrFail($id);
-        $taxistum->update($requestData);
 
-        return redirect('taxista')->with('flash_message', 'taxistum updated!');
+        $Taxista = Taxista::findOrFail($id);
+        $Taxista->update($requestData);
+
+        return redirect('taxista')->with('flash_message', 'Taxista updated!');
     }
 
     /**
@@ -121,8 +121,8 @@ class taxistaController extends Controller
      */
     public function destroy($id)
     {
-        taxistum::destroy($id);
+        Taxista::destroy($id);
 
-        return redirect('taxista')->with('flash_message', 'taxistum deleted!');
+        return redirect('taxista')->with('flash_message', 'Taxista deleted!');
     }
 }

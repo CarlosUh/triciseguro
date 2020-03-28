@@ -1,5 +1,5 @@
 <?php
-  
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,19 +16,6 @@ Route::get('/', function () {
 });
 
 
-
-Route::resource('documentos', 'DocumentosController');
-Route::resource('persona', 'PersonaController');
-Route::resource('queja', 'QuejaController');
-
-Route::resource('licencia', 'LicenciaController');
-
-
-Route::resource('contactos', 'ContactosController');
-
-Route::resource('notificacion', 'NotificacionController');
-
-Route::resource('promocion_aplicada', 'Promocion_aplicadaController');
 Route::resource('persona', 'PersonaController');
 Route::resource('ubicacion', 'UbicacionController');
 Route::resource('taxista', 'TaxistaController');
@@ -37,6 +24,3 @@ Route::resource('promocion', 'PromocionController');
 Route::resource('ruta', 'RutaController');
 Route::resource('solicitud', 'SolicitudController');
 Route::resource('viaje', 'ViajeController');
-Route::resource('viaje', 'ViajeController');
-Route::resource('viaje', 'ViajeController');
-Route::resource('servicio', 'ServicioController');
