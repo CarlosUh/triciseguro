@@ -31,5 +31,10 @@ class Documento extends Model
     {
         return $this->hasMany('App\Models\Taxista');
     }
+
+    public function documentable()
+    {
+        return $this->morphTo();
+    }
     
 }

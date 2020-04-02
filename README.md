@@ -54,3 +54,5 @@ Instalacion de Laravel CRUD Generator
 Ligar rutas storage
 ==============================
 php artisan storage:link
+
+php artisan crud:api-controller Api\DocumentoController --crud-name=Documento --model-name=Documento

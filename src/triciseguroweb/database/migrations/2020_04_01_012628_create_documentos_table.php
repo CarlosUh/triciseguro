@@ -20,7 +20,10 @@ class CreateDocumentosTable extends Migration
             $table->string('curp')->nullable();
             $table->string('fecha')->nullable();
             $table->integer('taxista_id')->unsigned();
+            $table->integer('documentable_id')->unsigned();
+            $table->string('documentable_type');
             $table->foreign('taxista_id')->references('id')->on('credencial')->onDelete('cascade')->onUpdate('cascade');
+
             });
     }
 

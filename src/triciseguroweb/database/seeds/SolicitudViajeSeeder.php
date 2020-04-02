@@ -18,6 +18,14 @@ class SolicitudViajeSeeder extends Seeder
               ->associate(factory(App\Taxista::class)->create())
           ->save();
 
+          //Creacion del documento
+        $taxista=factory(App\Documento::class)
+          ->make()
+              ->documentable()
+              ->associate(factory(App\Taxista::class)->create())
+          ->save();
+
+
         //Creacion del pasajero
         $pasajero=factory(App\Persona::class)
           ->make()
