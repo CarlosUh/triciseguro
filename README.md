@@ -48,7 +48,7 @@ Instalacion de Laravel CRUD Generator
 	
 * Utilizar Crud Generator
 	- Crear archivo json en crudg/tareas.json
-	- php artisan crud:generate Contactos --fields_from_file="crudg/contacto.json"  --form-helper=html
+	- php artisan crud:generate Documento --fields_from_file="crudg/documento.json"  --form-helper=html
 	- php artisan migrate
 	
 Ligar rutas storage
@@ -56,3 +56,21 @@ Ligar rutas storage
 php artisan storage:link
 
 php artisan crud:api-controller Api\DocumentoController --crud-name=Documento --model-name=Documento
+
+Seeder Pasos:
+Generar Seeder Nuevo
+	
+php artisan make:seeder DocumentoSeeder
+
+Ejecutamos Seeders
+
+php artisan db:seed
+
+Ejecutar un Seeder en especifico
+
+php artisan db:seed --class=ProfessionSeeder
+
+Factory Pasos:
+
+php artisan make:factory DocumentoFactory
+

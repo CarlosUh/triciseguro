@@ -29,10 +29,21 @@ class Documento extends Model
 
     public function taxista()
     {
-        return $this->hasMany('App\Models\Taxista');
+        return $this->belongsTo('App\Models\Taxista');
     }
-
-    public function documentable()
+    public function comprobantepago()
+    {
+        return $this->hasOne('App\Models\ComprobantePago');
+    }
+    public function credencial()
+    {
+        return $this->hasOne('App\Models\Credencial');
+    }
+    public function licencia()
+    {
+        return $this->hasOne('App\Models\Licencia');
+    }
+     public function documentable()
     {
         return $this->morphTo();
     }

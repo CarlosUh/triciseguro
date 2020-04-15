@@ -1,10 +1,10 @@
 {
-	"model_name":"Documento",
-	"soft_deletes":"yes",
-	"pk":"id",
-	"localize":"yes",
-	"table":"documentos",
-    "fields": [	
+    "model_name":"Documento",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"documentos",
+    "fields": [ 
     {
             "name": "nombre",
             "type": "string"
@@ -21,24 +21,40 @@
             "name": "fecha",
             "type": "string"
         },
-        {
+         {
             "name": "taxista_id",
             "type": "integer#unsigned"
         }
     ],
+
     "foreign_keys": [
         {
             "column": "taxista_id",
             "references": "id",
-            "on": "credencial",
+            "on": "taxistas",
             "onDelete": "cascade"
         }
     ],
     "relationships": [
         {
             "name": "taxista",
-            "type": "hasMany",
+            "type": "belongsTo",
             "class": "App\\Models\\Taxista"
+        },
+        {
+            "name": "comprobantepago",
+            "type": "hasOne",
+            "class": "App\\Models\\ComprobantePago"
+        },
+        {
+            "name": "credencial",
+            "type": "hasOne",
+            "class": "App\\Models\\Credencial"
+        },
+        {
+            "name": "licencia",
+            "type": "hasOne",
+            "class": "App\\Models\\Licencia"
         }
      ],  
     "validations": [
@@ -53,18 +69,16 @@
         {
             "field": "curp",
             "rules": "required|min:5"
-        }
-        ,
+        },
         {
             "field": "fecha",
             "rules": "required|min:6"
-        }
-        ,
+        },
         {
             "field": "taxista_id",
             "rules": "required|min:20"
         }
     ]
-	
+    
 }
 
