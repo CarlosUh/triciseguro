@@ -27,10 +27,10 @@ class Taxista extends Model
      */
     protected $fillable = ['none'];
 
-    public function documentos()
+   /* public function documentos()
     {
         return $this->HasMany('App\Documento');
-    }
+}*/
     public function quejas()
     {
         return $this->HasMany('App\Queja');
@@ -50,6 +50,10 @@ class Taxista extends Model
     public function persona()
     {
         return $this->morphOne('App\Persona', 'personable');
+    }
+    public function documento()
+    {
+        return $this->morphOne('App\Documento', 'documentable');
     }
 
 }

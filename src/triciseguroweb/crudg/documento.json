@@ -1,0 +1,86 @@
+{
+    "model_name":"Documento",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"documentos",
+    "fields": [ 
+    {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "apellido",
+            "type": "string"
+        },
+        {
+            "name": "curp",
+            "type": "string"
+        },
+        {
+            "name": "fecha",
+            "type": "string"
+        },
+         {
+            "name": "taxista_id",
+            "type": "integer#unsigned"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "taxista_id",
+            "references": "id",
+            "on": "taxistas",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "taxista",
+            "type": "belongsTo",
+            "class": "App\\Models\\Taxista"
+        },
+        {
+            "name": "comprobantepago",
+            "type": "hasOne",
+            "class": "App\\Models\\ComprobantePago"
+        },
+        {
+            "name": "credencial",
+            "type": "hasOne",
+            "class": "App\\Models\\Credencial"
+        },
+        {
+            "name": "licencia",
+            "type": "hasOne",
+            "class": "App\\Models\\Licencia"
+        }
+     ],  
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        },
+        {
+            "field": "apellido",
+            "rules": "required|min:20"
+        },
+        {
+            "field": "curp",
+            "rules": "required|min:5"
+        }
+        ,
+        {
+            "field": "fecha",
+            "rules": "required|min:6"
+        }
+        ,
+        {
+            "field": "taxista_id",
+            "rules": "required|min:20"
+        }
+    ]
+    
+}
+

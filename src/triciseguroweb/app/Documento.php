@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Persona extends Model
+class Documento extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'personas';
+    protected $table = 'documentos';
 
     /**
     * The database primary key value.
@@ -25,16 +25,16 @@ class Persona extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'apellido', 'f_nacimiento', 'genero', 'direccion', 'telefono'];
+    protected $fillable = ['nombre', 'apellido', 'curp', 'fecha', 'taxista_id'];
 
-    public function ubicaciones()
+    public function taxista()
     {
-        return $this->hasMany('App\Ubicacion');
+        return $this->belongsTo('App\Models\Taxista');
     }
-
-    public function personable()
+   
+    public function documentable()
     {
         return $this->morphTo();
     }
-   
+    
 }
