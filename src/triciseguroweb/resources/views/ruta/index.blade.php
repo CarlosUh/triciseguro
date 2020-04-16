@@ -1,10 +1,8 @@
-@extends('layouts.app')
-
+@extends('adminlte::page')
+@section('title', 'Laravel')
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">Ruta</div>
