@@ -7,9 +7,9 @@
 
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Edit Viaje #{{ $viaje->id }}</div>
+                    <div class="card-header">Edit Contacto #{{ $contacto->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/viaje') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/contactos') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,11 +21,11 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/viaje/' . $viaje->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/contactos/' . $contacto->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('viaje.form', ['formMode' => 'edit'])
+                            @include ('contactos.form', ['formMode' => 'edit'])
 
                         </form>
 

@@ -44,4 +44,11 @@ class Pasajero extends Model
     {
         return $this->morphOne('App\Persona', 'personable');
     }
+
+
+
+
+
+
+
 }

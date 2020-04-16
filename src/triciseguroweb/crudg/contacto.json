@@ -1,0 +1,43 @@
+{
+	"model_name":"Contacto",
+	"soft_deletes":"yes", 
+	"pk":"id",
+	"localize":"yes",
+	"table":"contactos",
+    "fields": [	
+    {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "numero",
+            "type": "string"
+        },
+        {
+            "name": "pasajero_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "pasajero_id",
+            "references": "id",
+            "on": "pasajeros",
+            "onDelete": "cascade"
+        }
+  
+
+    ],
+
+    "relationships": [
+        {
+            "name": "pasajero",
+            "type": "belongsTo",
+            "class": "App\\Models\\Pasajero"
+        }
+     ]
+
+	
+}
+

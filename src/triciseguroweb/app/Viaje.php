@@ -36,4 +36,5 @@ class Viaje extends Model
         return $this->morphOne('App\Solicitud', 'solicitable');
     }
 
+
 }
