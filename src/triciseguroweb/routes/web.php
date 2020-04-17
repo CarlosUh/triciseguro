@@ -27,3 +27,4 @@ Route::resource('viaje', 'ViajeController');
 
 Route::resource('comprobante-pago', 'ComprobantePagoController');
 Route::resource('documento', 'DocumentoController');
+Route::resource('credencial', 'CredencialController');

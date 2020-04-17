@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call('PromocionSeeder');
         $this->call('SolicitudViajeSeeder');
         $this->call('ComprobantePagoSeeder');
+         $this->call('CredencialSeeder');
     }
 }
