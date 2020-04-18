@@ -11,7 +11,7 @@
         }
     ],
     "relationships": [
-        {
+        { 
             "name": "documentos",
             "type": "HasMany",
             "class": "App\\Documento"

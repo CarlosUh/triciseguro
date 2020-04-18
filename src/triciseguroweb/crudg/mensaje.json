@@ -1,0 +1,54 @@
+{
+    "model_name":"Mensaje",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"mensajes",
+    "fields": [
+        {
+            "name": "mensaje",
+            "type": "text"
+        },
+        {
+            "name":"taxista_id",
+            "type":"integer#unsigned"
+        },
+        {
+            "name": "solicitud_id",
+            "type": "integer#unsigned"
+        }
+    ],
+
+    "foreign_keys": [
+        {
+            "column": "taxista_id",
+            "references": "id",
+            "on": "taxistas",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "solicitud_id",
+            "references": "id",
+            "on": "solicituds",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "taxista",
+            "type": "belongsTo",
+            "class": "App\\Taxista"
+        },
+        {
+            "name": "solicitud",
+            "type": "belongsTo",
+            "class": "App\\Models\\Solicitud"
+        }
+    ],
+    "validations": [
+        {
+            "field": "mensaje",
+            "rules": "required|min:5|max:20"
+        }
+    ]
+}
