@@ -1,0 +1,58 @@
+{
+    "model_name": "placa",
+    "soft_deletes": "yes",
+    "pk": "id",
+    "localize": "yes",
+    "table": "placas",
+    "fields": [{
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "color",
+            "type": "string"
+        },
+        {
+            "name": "tamanio",
+            "type": "string"
+        },
+        {
+            "name": "taxi_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "taxi_id",
+            "references": "id",
+            "on": "taxi",
+            "onDelete": "cascade"
+        }
+    ],    
+    "relationships": [
+        {
+            "name": "taxi",
+            "type": "belongsTo",
+            "class": "App\\Models\\Taxi"
+        }
+        
+
+    ],
+    "validations": [{
+        "field": "nombre",
+        "rules": "required|min:5|max:20"
+    },
+    {
+        "field": "color",
+        "rules": "required|min:4|max:20"
+    },
+    {
+        "field": "tamanio",
+        "rules": "required|min:5|max:20"
+    },
+    {
+        "field": "taxi_id",
+        "rules": "required|min:1"
+    }
+]
+}
