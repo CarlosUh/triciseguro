@@ -26,3 +26,4 @@ Route::resource('solicitud', 'SolicitudController');
 Route::resource('viaje', 'ViajeController');
 
 Route::resource('mototaxi', 'MototaxiController');
+Route::resource('placa', 'PlacaController');
