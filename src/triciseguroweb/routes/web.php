@@ -24,3 +24,5 @@ Route::resource('promocion', 'PromocionController');
 Route::resource('ruta', 'RutaController');
 Route::resource('solicitud', 'SolicitudController');
 Route::resource('viaje', 'ViajeController');
+
+Route::resource('calificaciones', 'CalificacionesController');
