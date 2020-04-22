@@ -51,4 +51,8 @@ class Solicitud extends Model
     {
         return $this->morphTo();
     }
+    public function promocionable()
+    {
+        return $this->hasMany('App\Promocion_aplicada');
+    }
 }

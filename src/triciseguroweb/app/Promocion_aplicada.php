@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Promocion extends Model
+class Promocion_aplicada extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'promociones';
+    protected $table = 'promocion_aplicadas';
 
     /**
     * The database primary key value.
@@ -25,6 +25,15 @@ class Promocion extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'fecha_inicio', 'fecha_fin', 'descripcion', 'tipo', 'dato'];
+    protected $fillable = ['promocion_id', 'solicitud_id'];
 
+    public function promocion()
+    {
+        return $this->belongsTo('App\Promocion');
+    }
+
+    public function solicitud()
+    {
+        return $this->belongsTo('App\Solicitud');
+    }
 }
