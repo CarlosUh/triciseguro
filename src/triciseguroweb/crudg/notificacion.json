@@ -1,0 +1,56 @@
+{
+	"model_name":"Notificacion",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"notificacions",
+    "fields": [
+        {
+			"name":"tipo",
+			"type":"string"
+		},
+
+		{
+			"name":"mensaje",
+            "type":"text"
+		},
+			{
+          "name": "origen_id",
+          "type": "integer#unsigned"
+      },
+      {
+          "name": "destino_id",
+          "type": "integer#unsigned"
+      }
+    ],
+    "foreign_keys": [
+				
+				{
+            "column": "origen_id",
+            "references": "id",
+            "on": "personas",
+            "onDelete": "cascade"
+        },
+				{
+            "column": "destino_id",
+            "references": "id",
+            "on": "personas",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+				
+				{
+            "name": "origen",
+            "type": "belongsTo",
+            "class": "App\\Persona"
+        },
+				{
+            "name": "destino",
+            "type": "belongsTo",
+            "class": "App\\Persona"
+        }
+
+    ]
+
+}
