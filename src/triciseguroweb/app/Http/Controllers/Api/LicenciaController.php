@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Taxista;
 use App\Licencia;
+use App\Documento;
 use Illuminate\Http\Request;
 
 class LicenciaController extends Controller
@@ -32,9 +33,20 @@ class LicenciaController extends Controller
     public function store(Request $request)
     {
         
-        $licencia = Licencia::create($request->all());
+       //$licencia = Licencia::create($request->all());
 
-        return response()->json($licencia, 201);
+    	$documento = new Documento();
+    	$documento->nombre = $request->nombre;
+    	$documento->apellido = $request->apellido;
+    	$documento->curp = $request->curp;
+    	$documento->fecha = $request->fecha;
+    	$documento->taxista_id = $request->taxista_id;
+    	$documento->make();
+    	$documento->documentable()->associate($licencia = Licencia::create($request->all()));
+    	$documento->save();
+
+        return response()->json($documento, 201);
+
     }
 
     /**
