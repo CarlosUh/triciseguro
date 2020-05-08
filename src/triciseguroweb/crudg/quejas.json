@@ -1,0 +1,27 @@
+{
+    "model_name": "Queja",
+    "soft_deletes": "yes",
+    "pk": "id",
+    "localize": "yes",
+    "table": "quejas",
+    "fields": [{
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "taxista:id",
+            "type": "string"
+        },
+        {
+            "name": "comentario",
+            "type": "string"
+        }
+    ],
+    "relationships": [{
+        "name": "taxista",
+        "type": "HasMany",
+        "class": "App\\nombre"
+    }],
+    "validations": []
+
+}

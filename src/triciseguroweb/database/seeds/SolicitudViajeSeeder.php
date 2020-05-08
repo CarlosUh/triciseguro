@@ -28,12 +28,15 @@ class SolicitudViajeSeeder extends Seeder
           $ruta=factory(App\Ruta::class)->create();
           //Creacion del viaje
           $v=factory(App\Viaje::class)->create();
+          //Creacion de queja
+          $queja=factory(App\Queja::class)->create();
           //Creacion de la solicitud
           $solicitud=new App\Solicitud();
           $solicitud->taxista()->associate($taxista);
           $solicitud->pasajero()->associate($pasajero);
           $solicitud->ruta()->associate($ruta);
           $solicitud->solicitable()->associate($v );
+
           //guardar la solicitud
            $solicitud->save();
 
